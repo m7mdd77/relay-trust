@@ -1,0 +1,37 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:08.000
+Relay Trust
+A receiving agent checks signed evidence and bounded authority before acting.
+
+00:00:08.000 --> 00:00:20.000
+Valid request → signed effect
+Scout signs the request. Steward verifies fifteen checks, creates one synthetic ticket, and signs the receipt.
+
+00:00:20.000 --> 00:00:29.000
+Authentic identity, insufficient authority
+The ticket.create grant does not authorize site deletion. Steward refuses the request.
+
+00:00:29.000 --> 00:00:39.000
+A copied name cannot pass
+The spoofed Scout uses the wrong signing key. The requester signature fails.
+
+00:00:39.000 --> 00:00:49.000
+Altered claims fail verification
+Changing the signed quota invalidates the owner signature. Self-reported success cannot substitute for evidence.
+
+00:00:49.000 --> 00:01:01.000
+Approval does not freeze authority
+Prepare a valid task, revoke its grant, then execute. The live action-boundary check blocks the effect.
+
+00:01:01.000 --> 00:01:11.000
+Owners retain bounded control
+Narrowing replaces and revokes the old grant. One ticket is allowed; further work is refused when quota is spent.
+
+00:01:11.000 --> 00:01:21.000
+The public companion preserves replay safety
+Repeating execution returns the original signed receipt. Five concurrent API executions also produced one effect.
+
+00:01:21.000 --> 00:01:30.000
+Trust should travel with the task
+Inspect the credentials, failure fixtures, source, architecture, and 252-word thesis. No model API key is required.
