@@ -1,0 +1,853 @@
+{
+  "configured": true,
+  "trace": [
+    {
+      "type": "processes.started",
+      "at": "2026-10-13T08:10:43.662Z",
+      "scoutPid": 2712,
+      "stewardPid": 28744,
+      "identities": {
+        "owner": {
+          "id": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+          "did": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+          "name": "Owner",
+          "role": "owner",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAKzaenAc3vxONapuN3wDFWBXcuXnQkNZAZkzw5+lsnRY=\n-----END PUBLIC KEY-----\n"
+        },
+        "lab": {
+          "id": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+          "did": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+          "name": "Evidence Lab",
+          "role": "lab",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEACyTs3ERmy7+QrebcGJm9eogGI8Rp3XxofONESrnEg8Y=\n-----END PUBLIC KEY-----\n"
+        },
+        "outsider": {
+          "id": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+          "did": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+          "name": "Mirror",
+          "role": "outsider",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAvrZJigMFOkPVzeEX/V4x9DkTgMKaQlBVQINrHq6PinM=\n-----END PUBLIC KEY-----\n"
+        },
+        "scout": {
+          "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "did": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "name": "scout",
+          "role": "scout",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMIOkFInhn41A1p/CPOIQeccLiIUhtBItNvOUJf/hs9o=\n-----END PUBLIC KEY-----\n"
+        },
+        "steward": {
+          "id": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "did": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "name": "steward",
+          "role": "steward",
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAFf7TF7tA39KNtcW5Zh67ZfMptJyUr0LnPmuG7Tvoxx4=\n-----END PUBLIC KEY-----\n"
+        }
+      }
+    },
+    {
+      "type": "scout.ai_proposal",
+      "at": "2026-10-13T08:10:46.346Z",
+      "request": {
+        "payload": {
+          "format": "relay-request/v1",
+          "id": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
+          "from": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "to": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "notBefore": 1791879045354,
+          "expiresAt": 1791879346354,
+          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+          "attestationId": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+          "delegationHash": "fda30d72e6773f071e831b30451a98c670ede288dfcdb6ee4cf55374e2f3098c",
+          "attestationHash": "dc3d5f0b66fa99140137fc7960d14a413c331e4fcf73b92ac8b7801535994b2d"
+        },
+        "signature": "7cd-HmgiLXHdil4DQ58_ftysT8hpSiVCZzhabsl1rNzYpYgz70f4QWOwYGrr_lmcey-8pDqT8hjCbZs_Hf4mCA"
+      },
+      "proposal": {
+        "text": "{\"action\":\"ticket.create\",\"resource\":\"SITE-17\",\"summary\":\"Synthetic broken-link finding: lab-attested inspection of SITE-17 flagged one unresolved broken link for repair.\"}",
+        "provider": "AgentRouter",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "input_tokens": 787,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 87,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard"
+        },
+        "parsed": {
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "summary": "Synthetic broken-link finding: lab-attested inspection of SITE-17 flagged one unresolved broken link for repair."
+        },
+        "reused": false
+      }
+    },
+    {
+      "type": "steward.ai_review",
+      "at": "2026-10-13T08:10:48.960Z",
+      "status": "prepared",
+      "evaluation": {
+        "allowed": true,
+        "checks": [
+          {
+            "code": "request_signature",
+            "pass": true,
+            "detail": "Requester must prove possession of Scout’s registered Ed25519 key."
+          },
+          {
+            "code": "delegation_signature",
+            "pass": true,
+            "detail": "Authority must be signed by the pinned Workshop Owner."
+          },
+          {
+            "code": "attestation_signature",
+            "pass": true,
+            "detail": "Evidence must be signed by the pinned Evidence Lab."
+          },
+          {
+            "code": "format",
+            "pass": true,
+            "detail": "Only the versioned local credential and request formats are accepted."
+          },
+          {
+            "code": "issuer_binding",
+            "pass": true,
+            "detail": "Both issuer identifiers must match their pinned signing keys."
+          },
+          {
+            "code": "subject_binding",
+            "pass": true,
+            "detail": "Request and both credentials must bind the same registered Scout."
+          },
+          {
+            "code": "audience",
+            "pass": true,
+            "detail": "Authority and evidence are usable only by Patch Steward."
+          },
+          {
+            "code": "credential_binding",
+            "pass": true,
+            "detail": "The signed request commits to these exact credential envelopes."
+          },
+          {
+            "code": "validity",
+            "pass": true,
+            "detail": "Request, authority, and evidence must be active and unexpired."
+          },
+          {
+            "code": "revocation",
+            "pass": true,
+            "detail": "Live revocation state is checked again at execution."
+          },
+          {
+            "code": "capability",
+            "pass": true,
+            "detail": "Only creating a synthetic repair ticket is delegated."
+          },
+          {
+            "code": "resource",
+            "pass": true,
+            "detail": "The request must stay inside the delegated SITE-17 resource."
+          },
+          {
+            "code": "evidence",
+            "pass": true,
+            "detail": "At least three issuer-attested synthetic inspections are required; self-reported reputation is ignored."
+          },
+          {
+            "code": "history_signatures",
+            "pass": true,
+            "detail": "Each distinct attested inspection hash must resolve to an authentic lab-signed receipt for this Scout."
+          },
+          {
+            "code": "quota",
+            "pass": true,
+            "detail": "Successful executions cannot exceed this grant’s ticket quota."
+          }
+        ],
+        "failed": [],
+        "evaluatedAt": 1791879048968
+      },
+      "analysis": {
+        "text": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+        "provider": "AgentRouter",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "input_tokens": 580,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 53,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard"
+        }
+      }
+    },
+    {
+      "type": "steward.executed",
+      "at": "2026-10-13T08:10:48.964Z",
+      "status": "executed",
+      "receipt": {
+        "payload": {
+          "id": "252a4c4e-c536-4205-a279-ed7e052bbc04",
+          "requestId": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
+          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+          "requestHash": "9be09e64438e4a00b76cde5837d5d8f56498c9807dc9da9d33d51cca44ff3db2",
+          "issuer": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "synthetic": true,
+          "result": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+          "at": 1791879048972
+        },
+        "signature": "rBsWMn3RGxpfRNXNMheW_DlaldwB3gIzPJcyoXba0qU9hApSbr-0SUKwbH77H1GOFHk1BDqBG0w2cd66IUS1Cg"
+      },
+      "evaluation": {
+        "allowed": true,
+        "checks": [
+          {
+            "code": "request_signature",
+            "pass": true,
+            "detail": "Requester must prove possession of Scout’s registered Ed25519 key."
+          },
+          {
+            "code": "delegation_signature",
+            "pass": true,
+            "detail": "Authority must be signed by the pinned Workshop Owner."
+          },
+          {
+            "code": "attestation_signature",
+            "pass": true,
+            "detail": "Evidence must be signed by the pinned Evidence Lab."
+          },
+          {
+            "code": "format",
+            "pass": true,
+            "detail": "Only the versioned local credential and request formats are accepted."
+          },
+          {
+            "code": "issuer_binding",
+            "pass": true,
+            "detail": "Both issuer identifiers must match their pinned signing keys."
+          },
+          {
+            "code": "subject_binding",
+            "pass": true,
+            "detail": "Request and both credentials must bind the same registered Scout."
+          },
+          {
+            "code": "audience",
+            "pass": true,
+            "detail": "Authority and evidence are usable only by Patch Steward."
+          },
+          {
+            "code": "credential_binding",
+            "pass": true,
+            "detail": "The signed request commits to these exact credential envelopes."
+          },
+          {
+            "code": "validity",
+            "pass": true,
+            "detail": "Request, authority, and evidence must be active and unexpired."
+          },
+          {
+            "code": "revocation",
+            "pass": true,
+            "detail": "Live revocation state is checked again at execution."
+          },
+          {
+            "code": "capability",
+            "pass": true,
+            "detail": "Only creating a synthetic repair ticket is delegated."
+          },
+          {
+            "code": "resource",
+            "pass": true,
+            "detail": "The request must stay inside the delegated SITE-17 resource."
+          },
+          {
+            "code": "evidence",
+            "pass": true,
+            "detail": "At least three issuer-attested synthetic inspections are required; self-reported reputation is ignored."
+          },
+          {
+            "code": "history_signatures",
+            "pass": true,
+            "detail": "Each distinct attested inspection hash must resolve to an authentic lab-signed receipt for this Scout."
+          },
+          {
+            "code": "quota",
+            "pass": true,
+            "detail": "Successful executions cannot exceed this grant’s ticket quota."
+          }
+        ],
+        "failed": [],
+        "evaluatedAt": 1791879048970
+      }
+    },
+    {
+      "type": "steward.already_executed",
+      "at": "2026-10-13T08:10:48.964Z",
+      "status": "already_executed",
+      "receipt": {
+        "payload": {
+          "id": "252a4c4e-c536-4205-a279-ed7e052bbc04",
+          "requestId": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
+          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+          "requestHash": "9be09e64438e4a00b76cde5837d5d8f56498c9807dc9da9d33d51cca44ff3db2",
+          "issuer": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "synthetic": true,
+          "result": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+          "at": 1791879048972
+        },
+        "signature": "rBsWMn3RGxpfRNXNMheW_DlaldwB3gIzPJcyoXba0qU9hApSbr-0SUKwbH77H1GOFHk1BDqBG0w2cd66IUS1Cg"
+      }
+    },
+    {
+      "type": "spoof.refused",
+      "at": "2026-10-13T08:10:48.966Z",
+      "status": "refused",
+      "evaluation": {
+        "allowed": false,
+        "checks": [
+          {
+            "code": "request_signature",
+            "pass": false,
+            "detail": "Requester must prove possession of Scout’s registered Ed25519 key."
+          },
+          {
+            "code": "delegation_signature",
+            "pass": true,
+            "detail": "Authority must be signed by the pinned Workshop Owner."
+          },
+          {
+            "code": "attestation_signature",
+            "pass": true,
+            "detail": "Evidence must be signed by the pinned Evidence Lab."
+          },
+          {
+            "code": "format",
+            "pass": true,
+            "detail": "Only the versioned local credential and request formats are accepted."
+          },
+          {
+            "code": "issuer_binding",
+            "pass": true,
+            "detail": "Both issuer identifiers must match their pinned signing keys."
+          },
+          {
+            "code": "subject_binding",
+            "pass": true,
+            "detail": "Request and both credentials must bind the same registered Scout."
+          },
+          {
+            "code": "audience",
+            "pass": true,
+            "detail": "Authority and evidence are usable only by Patch Steward."
+          },
+          {
+            "code": "credential_binding",
+            "pass": true,
+            "detail": "The signed request commits to these exact credential envelopes."
+          },
+          {
+            "code": "validity",
+            "pass": true,
+            "detail": "Request, authority, and evidence must be active and unexpired."
+          },
+          {
+            "code": "revocation",
+            "pass": true,
+            "detail": "Live revocation state is checked again at execution."
+          },
+          {
+            "code": "capability",
+            "pass": true,
+            "detail": "Only creating a synthetic repair ticket is delegated."
+          },
+          {
+            "code": "resource",
+            "pass": true,
+            "detail": "The request must stay inside the delegated SITE-17 resource."
+          },
+          {
+            "code": "evidence",
+            "pass": true,
+            "detail": "At least three issuer-attested synthetic inspections are required; self-reported reputation is ignored."
+          },
+          {
+            "code": "history_signatures",
+            "pass": true,
+            "detail": "Each distinct attested inspection hash must resolve to an authentic lab-signed receipt for this Scout."
+          },
+          {
+            "code": "quota",
+            "pass": true,
+            "detail": "Successful executions cannot exceed this grant’s ticket quota."
+          }
+        ],
+        "failed": [
+          "request_signature"
+        ],
+        "evaluatedAt": 1791879048974
+      }
+    },
+    {
+      "type": "steward.prepared",
+      "at": "2026-10-13T08:10:48.970Z",
+      "status": "prepared",
+      "evaluation": {
+        "allowed": true,
+        "checks": [
+          {
+            "code": "request_signature",
+            "pass": true,
+            "detail": "Requester must prove possession of Scout’s registered Ed25519 key."
+          },
+          {
+            "code": "delegation_signature",
+            "pass": true,
+            "detail": "Authority must be signed by the pinned Workshop Owner."
+          },
+          {
+            "code": "attestation_signature",
+            "pass": true,
+            "detail": "Evidence must be signed by the pinned Evidence Lab."
+          },
+          {
+            "code": "format",
+            "pass": true,
+            "detail": "Only the versioned local credential and request formats are accepted."
+          },
+          {
+            "code": "issuer_binding",
+            "pass": true,
+            "detail": "Both issuer identifiers must match their pinned signing keys."
+          },
+          {
+            "code": "subject_binding",
+            "pass": true,
+            "detail": "Request and both credentials must bind the same registered Scout."
+          },
+          {
+            "code": "audience",
+            "pass": true,
+            "detail": "Authority and evidence are usable only by Patch Steward."
+          },
+          {
+            "code": "credential_binding",
+            "pass": true,
+            "detail": "The signed request commits to these exact credential envelopes."
+          },
+          {
+            "code": "validity",
+            "pass": true,
+            "detail": "Request, authority, and evidence must be active and unexpired."
+          },
+          {
+            "code": "revocation",
+            "pass": true,
+            "detail": "Live revocation state is checked again at execution."
+          },
+          {
+            "code": "capability",
+            "pass": true,
+            "detail": "Only creating a synthetic repair ticket is delegated."
+          },
+          {
+            "code": "resource",
+            "pass": true,
+            "detail": "The request must stay inside the delegated SITE-17 resource."
+          },
+          {
+            "code": "evidence",
+            "pass": true,
+            "detail": "At least three issuer-attested synthetic inspections are required; self-reported reputation is ignored."
+          },
+          {
+            "code": "history_signatures",
+            "pass": true,
+            "detail": "Each distinct attested inspection hash must resolve to an authentic lab-signed receipt for this Scout."
+          },
+          {
+            "code": "quota",
+            "pass": true,
+            "detail": "Successful executions cannot exceed this grant’s ticket quota."
+          }
+        ],
+        "failed": [],
+        "evaluatedAt": 1791879048979
+      },
+      "analysis": {
+        "text": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+        "provider": "AgentRouter",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "input_tokens": 580,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 53,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard"
+        }
+      }
+    },
+    {
+      "type": "owner.revoked",
+      "at": "2026-10-13T08:10:48.970Z",
+      "status": "revoked"
+    },
+    {
+      "type": "steward.blocked",
+      "at": "2026-10-13T08:10:48.972Z",
+      "status": "blocked",
+      "evaluation": {
+        "allowed": false,
+        "checks": [
+          {
+            "code": "request_signature",
+            "pass": true,
+            "detail": "Requester must prove possession of Scout’s registered Ed25519 key."
+          },
+          {
+            "code": "delegation_signature",
+            "pass": true,
+            "detail": "Authority must be signed by the pinned Workshop Owner."
+          },
+          {
+            "code": "attestation_signature",
+            "pass": true,
+            "detail": "Evidence must be signed by the pinned Evidence Lab."
+          },
+          {
+            "code": "format",
+            "pass": true,
+            "detail": "Only the versioned local credential and request formats are accepted."
+          },
+          {
+            "code": "issuer_binding",
+            "pass": true,
+            "detail": "Both issuer identifiers must match their pinned signing keys."
+          },
+          {
+            "code": "subject_binding",
+            "pass": true,
+            "detail": "Request and both credentials must bind the same registered Scout."
+          },
+          {
+            "code": "audience",
+            "pass": true,
+            "detail": "Authority and evidence are usable only by Patch Steward."
+          },
+          {
+            "code": "credential_binding",
+            "pass": true,
+            "detail": "The signed request commits to these exact credential envelopes."
+          },
+          {
+            "code": "validity",
+            "pass": true,
+            "detail": "Request, authority, and evidence must be active and unexpired."
+          },
+          {
+            "code": "revocation",
+            "pass": false,
+            "detail": "Live revocation state is checked again at execution."
+          },
+          {
+            "code": "capability",
+            "pass": true,
+            "detail": "Only creating a synthetic repair ticket is delegated."
+          },
+          {
+            "code": "resource",
+            "pass": true,
+            "detail": "The request must stay inside the delegated SITE-17 resource."
+          },
+          {
+            "code": "evidence",
+            "pass": true,
+            "detail": "At least three issuer-attested synthetic inspections are required; self-reported reputation is ignored."
+          },
+          {
+            "code": "history_signatures",
+            "pass": true,
+            "detail": "Each distinct attested inspection hash must resolve to an authentic lab-signed receipt for this Scout."
+          },
+          {
+            "code": "quota",
+            "pass": true,
+            "detail": "Successful executions cannot exceed this grant’s ticket quota."
+          }
+        ],
+        "failed": [
+          "revocation"
+        ],
+        "evaluatedAt": 1791879048980
+      }
+    }
+  ],
+  "identities": {
+    "owner": {
+      "id": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "did": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "name": "Owner",
+      "role": "owner",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAKzaenAc3vxONapuN3wDFWBXcuXnQkNZAZkzw5+lsnRY=\n-----END PUBLIC KEY-----\n"
+    },
+    "lab": {
+      "id": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "did": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "name": "Evidence Lab",
+      "role": "lab",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEACyTs3ERmy7+QrebcGJm9eogGI8Rp3XxofONESrnEg8Y=\n-----END PUBLIC KEY-----\n"
+    },
+    "outsider": {
+      "id": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+      "did": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+      "name": "Mirror",
+      "role": "outsider",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAvrZJigMFOkPVzeEX/V4x9DkTgMKaQlBVQINrHq6PinM=\n-----END PUBLIC KEY-----\n"
+    },
+    "scout": {
+      "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+      "did": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+      "name": "scout",
+      "role": "scout",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAMIOkFInhn41A1p/CPOIQeccLiIUhtBItNvOUJf/hs9o=\n-----END PUBLIC KEY-----\n"
+    },
+    "steward": {
+      "id": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+      "did": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+      "name": "steward",
+      "role": "steward",
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAFf7TF7tA39KNtcW5Zh67ZfMptJyUr0LnPmuG7Tvoxx4=\n-----END PUBLIC KEY-----\n"
+    }
+  },
+  "delegation": {
+    "payload": {
+      "format": "relay-credential/v1",
+      "id": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+      "kind": "delegation",
+      "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+      "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+      "notBefore": 1791879042663,
+      "expiresAt": 1791965443663,
+      "capabilities": [
+        "ticket.create"
+      ],
+      "resources": [
+        "SITE-17"
+      ],
+      "maxItems": 3,
+      "credentialProfile": "vc-data-integrity/v2"
+    },
+    "signature": "l490ZHXIikwH62PiXC3XCmvxEA7t6xnYOZGhdKhtO67igrBPtbYDBszDqdZOvshbAk2VbEZsM3iAgLSx5dLMAw",
+    "verifiableCredential": {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        {
+          "relay": "https://relay-trust.example/vocab#",
+          "RelayDelegationCredential": "relay:DelegationCredential",
+          "RelayAttestationCredential": "relay:AttestationCredential",
+          "claims": {
+            "@id": "relay:claims",
+            "@type": "@json"
+          }
+        }
+      ],
+      "id": "urn:uuid:f8cd2dae-ba67-430a-aece-aa752332ce02",
+      "type": [
+        "VerifiableCredential",
+        "RelayDelegationCredential"
+      ],
+      "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "validFrom": "2026-10-13T08:10:42.663Z",
+      "validUntil": "2026-10-14T08:10:43.663Z",
+      "credentialSubject": {
+        "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+        "claims": {
+          "format": "relay-credential/v1",
+          "id": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+          "kind": "delegation",
+          "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+          "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "notBefore": 1791879042663,
+          "expiresAt": 1791965443663,
+          "capabilities": [
+            "ticket.create"
+          ],
+          "resources": [
+            "SITE-17"
+          ],
+          "maxItems": 3,
+          "credentialProfile": "vc-data-integrity/v2"
+        }
+      },
+      "proof": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          {
+            "relay": "https://relay-trust.example/vocab#",
+            "RelayDelegationCredential": "relay:DelegationCredential",
+            "RelayAttestationCredential": "relay:AttestationCredential",
+            "claims": {
+              "@id": "relay:claims",
+              "@type": "@json"
+            }
+          }
+        ],
+        "type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-jcs-2022",
+        "created": "2026-10-13T08:10:43.664Z",
+        "verificationMethod": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF#z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z9PzasjWzGGuLsw2NiYrhA6cJY9yjbH8nV27wGj6P2LgiQ5D5cvuK1SXsMYzKHgmu2EFAwbCsLaC3CmR2dXAoGNg"
+      }
+    }
+  },
+  "attestation": {
+    "payload": {
+      "format": "relay-credential/v1",
+      "id": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+      "kind": "attestation",
+      "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+      "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+      "notBefore": 1791879042663,
+      "expiresAt": 1791965443663,
+      "claim": {
+        "type": "sandbox.inspection",
+        "successfulInspections": 3,
+        "environment": "synthetic",
+        "receiptHashes": [
+          "3b8c0405e608f715a76d1b57b4aa49026f0a94b0690de669495438a93d3c4541",
+          "cb435661d789ebf14bf47f01d54a36a683c392fa43985db584004f16d0f0e3a4",
+          "a7f163ee7d5634f4907b01dba20bc85509ecb5e60544b5517267d7c8fbed7685"
+        ]
+      },
+      "credentialProfile": "vc-data-integrity/v2"
+    },
+    "signature": "IomqYsF3LsXJmQJwfvEOHgX_uzNJ1ytyaAtfEpA7hXD75bpaVen2D0FbrkEXhZPnKgN82hcR3j3FqKP9aEccCg",
+    "verifiableCredential": {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        {
+          "relay": "https://relay-trust.example/vocab#",
+          "RelayDelegationCredential": "relay:DelegationCredential",
+          "RelayAttestationCredential": "relay:AttestationCredential",
+          "claims": {
+            "@id": "relay:claims",
+            "@type": "@json"
+          }
+        }
+      ],
+      "id": "urn:uuid:7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+      "type": [
+        "VerifiableCredential",
+        "RelayAttestationCredential"
+      ],
+      "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "validFrom": "2026-10-13T08:10:42.663Z",
+      "validUntil": "2026-10-14T08:10:43.663Z",
+      "credentialSubject": {
+        "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+        "claims": {
+          "format": "relay-credential/v1",
+          "id": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+          "kind": "attestation",
+          "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+          "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "notBefore": 1791879042663,
+          "expiresAt": 1791965443663,
+          "claim": {
+            "type": "sandbox.inspection",
+            "successfulInspections": 3,
+            "environment": "synthetic",
+            "receiptHashes": [
+              "3b8c0405e608f715a76d1b57b4aa49026f0a94b0690de669495438a93d3c4541",
+              "cb435661d789ebf14bf47f01d54a36a683c392fa43985db584004f16d0f0e3a4",
+              "a7f163ee7d5634f4907b01dba20bc85509ecb5e60544b5517267d7c8fbed7685"
+            ]
+          },
+          "credentialProfile": "vc-data-integrity/v2"
+        }
+      },
+      "proof": {
+        "@context": [
+          "https://www.w3.org/ns/credentials/v2",
+          {
+            "relay": "https://relay-trust.example/vocab#",
+            "RelayDelegationCredential": "relay:DelegationCredential",
+            "RelayAttestationCredential": "relay:AttestationCredential",
+            "claims": {
+              "@id": "relay:claims",
+              "@type": "@json"
+            }
+          }
+        ],
+        "type": "DataIntegrityProof",
+        "cryptosuite": "eddsa-jcs-2022",
+        "created": "2026-10-13T08:10:43.665Z",
+        "verificationMethod": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF#z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z2DHpRngdkbPA3igxAZGVyZaKfKjKUxTVM3sjQSvYaopW7uyyUqyhEuUyFnzpzjvg3R4m8Kma8EnJtyskJ5zvayRY"
+      }
+    }
+  },
+  "used": 1,
+  "revoked": [
+    "f8cd2dae-ba67-430a-aece-aa752332ce02"
+  ],
+  "synthetic": true,
+  "checkedAt": "2026-10-13T08:10:48.972Z",
+  "passed": true,
+  "checks": [
+    "actual Scout DeepSeek inference",
+    "actual Steward DeepSeek inference",
+    "separate processes and private signing keys",
+    "VC Data Integrity proofs",
+    "signed execution receipt",
+    "same-receipt replay",
+    "spoof refusal",
+    "execution blocked after revocation"
+  ]
+}

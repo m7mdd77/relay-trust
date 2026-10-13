@@ -47,9 +47,9 @@ The UI exposes fifteen checks and the submitted signed envelopes. Browser WebCry
 | --- | --- |
 | `server.js`, `src/` | Dependency-free Node/SQLite implementation |
 | `public/` | Responsive browser demo |
-| `test/` | 34 local cryptographic, persistence, and HTTP tests |
+| `test/` | 39 local cryptographic, persistence, and HTTP tests |
 | `hosted/` | Full Sites/Vinext/D1 companion source and lockfile |
-| `hosted/test/` | 8 hosted API/isolation/concurrency tests |
+| `hosted/test/` | 13 hosted API/isolation/concurrency tests |
 | `docs/` | Architecture, failure evidence, 252-word thesis, walkthrough |
 | `tools/verify-public.js` | Offline public-evidence integrity verifier |
 
@@ -74,13 +74,19 @@ Local effects commit with a fresh policy check inside SQLite `BEGIN IMMEDIATE`. 
 
 ## AI usage and limits
 
-OpenAI Codex assisted with scenario design, implementation, tests, documentation, publication preparation, and browser verification. No paid model or AgentRouter credential is used. A model is not required to make or verify a trust decision.
+OpenAI Codex assisted with scenario design, implementation, tests, documentation, publication preparation, and browser verification. The original fixture lab needs no model. The independent local agents use the existing private AgentRouter configuration through the actual supported Claude Code client. Model proposals cannot bypass deterministic authorization.
 
-- Actors share server custody; they are simulated named agents, not independently operated LLM processes.
+- The fixture lab simulates agents. The live local AI section runs Scout and Steward in separate Node processes, each retaining its own signing key and calling DeepSeek V4 Flash through AgentRouter. The hosted Worker exposes the verified public transcript, without the owner model key.
 - Issuers are pinned synthetic roots; signatures establish origin/integrity, not real-world identity or the truth of a claim.
-- This is a versioned local credential format, **not W3C VC, DID, JWT, or JCS compliance**.
+- New grants and attestations carry W3C VC 2.0 / Data Integrity `eddsa-jcs-2022` proofs with Ed25519 `did:key` identifiers. The verifier passes the published W3C B.3 vector. Legacy sessions may retain the original format; renew or start fresh.
 - Public visitors control only their own synthetic sandbox. Keys stay server-side in private D1 state; sessions last 24 hours and active sessions are capped at 256.
 - The operator timeline is not an immutable external ledger. Hosting administrators can access stored keys; production key management is outside scope.
 - No actual site repair, external tool action, account transaction, money transfer, or revenue is claimed.
 
 The walkthrough video uses captioned verified UI captures. It is labeled as a capture-based walkthrough, not a continuous live screencast.
+
+## Standards and live independent AI agents
+
+See [standards and agent setup](docs/standards-and-agents.md) and [the actual verified AI run](docs/independent-ai-agents.json). Set `RELAY_AGENT_ENV` to an existing private `.env` file before `npm start`. The key stays out of source. Use the local live section for Run AI handoff → Execute → Replay → Spoof → Prepare → Revoke → Execute.
+
+The local app includes a continuous 90-second browser recorder, requiring selection of only the Relay Trust tab in the browser sharing picker. The earlier published video remains captioned captures until a new continuous capture is completed and verified.
