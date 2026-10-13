@@ -1,0 +1,10 @@
+.local/
+node_modules/
+*.log
+coverage/
+.env*
+hosted/.wrangler/
+hosted/.sites-runtime/
+hosted/dist/
+hosted/.vinext/
+hosted/.git/
