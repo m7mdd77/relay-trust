@@ -4,10 +4,12 @@ import {fileURLToPath} from 'node:url';
 import {randomBytes, timingSafeEqual} from 'node:crypto';
 import {resolve} from 'node:path';
 import {TrustStore} from './src/store.js';
+import {AgentSession} from './src/agent-session.js';
 
 export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
   const store=new TrustStore(dbPath),token=randomBytes(32).toString('hex');
-  const assets=new Map([['/',['index.html','text/html; charset=utf-8']],['/app.js',['app.js','text/javascript; charset=utf-8']],['/style.css',['style.css','text/css; charset=utf-8']]].map(([route,[file,type]])=>[route,{data:readFileSync(new URL(`./public/${file}`,import.meta.url)),type}]));
+  const agents=new AgentSession();
+  const assets=new Map([['/',['index.html','text/html; charset=utf-8']],['/app.js',['app.js','text/javascript; charset=utf-8']],['/agents.js',['agents.js','text/javascript; charset=utf-8']],['/style.css',['style.css','text/css; charset=utf-8']]].map(([route,[file,type]])=>[route,{data:readFileSync(new URL(`./public/${file}`,import.meta.url)),type}]));
   const rates=new Map();
   const server=createServer(async(req,res)=>{
     const headers={'Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'",'Permissions-Policy':'camera=(), microphone=(), geolocation=()','Cross-Origin-Resource-Policy':'same-origin'};
@@ -20,6 +22,7 @@ export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
       if(req.headers['sec-fetch-site']==='cross-site')return send(403,{error:'Cross-site request denied.'});
       if(req.url.includes('?') || req.url.includes('%') || req.url.includes('..'))return send(404,{error:'Route not found.'});
       if(req.method==='GET') {
+        if(req.url==='/api/agent-state')return send(200,agents.state());
         if(req.url==='/api/state')return send(200,{...store.state(),token});
         if(req.url==='/api/export')return send(200,{format:'relay-public-snapshot/v1',...store.state()});
         const asset=assets.get(req.url);
@@ -39,6 +42,11 @@ export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
       let body;try{body=JSON.parse(data);}catch{return send(400,{error:'Invalid JSON.'});}
       if(!body || Array.isArray(body)||typeof body!=='object')return send(400,{error:'JSON object required.'});
       const keys=Object.keys(body);
+      if(req.url==='/api/agents'){
+        if(keys.join(',')!=='mode'||!['run','execute','replay','spoof','prepare','revoke'].includes(body.mode))return send(400,{error:'Choose an agent operation.'});
+        if(!process.env.RELAY_AGENT_ENV)return send(503,{error:'Configure RELAY_AGENT_ENV for the local AI agent processes.'});
+        try{return send(200,await agents.act(body.mode));}catch(e){return send(502,{error:e.message});}
+      }
       if(req.url==='/api/prepare') {
         if(keys.join(',')!=='scenario'||!['allowed','scope','spoof','tampered','expired','audience'].includes(body.scenario))return send(400,{error:'Choose a supported scenario.'});
         return send(200,store.prepare(body.scenario));
@@ -55,6 +63,7 @@ export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
     }catch(e){send(e.status||500,{error:e.status?e.message:'Internal error.'});}
   });
   server.requestTimeout=10000;server.headersTimeout=10000;
+  server.on('close',()=>agents.close());
   return {server,store};
 }
 if(process.argv[1] && resolve(process.argv[1])===fileURLToPath(import.meta.url)) {

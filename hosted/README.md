@@ -1,6 +1,6 @@
-# Relay Trust â€” hosted synthetic laboratory
+# Relay Trust — hosted synthetic laboratory
 
-Hosted companion to the dependency-free Node.js local prototype in the repository root. Built with the supplied Sites Vinext starter and Cloudflare D1. The original Ed25519 crypto and fifteen-check policy are reused unchanged.
+Hosted companion to the dependency-free Node.js local prototype in `../relay-trust/`. Built with the supplied Sites Vinext starter and Cloudflare D1. The original Ed25519 crypto and fifteen-check policy are reused unchanged.
 
 Every visitor receives a separate anonymous synthetic sandbox. Its five key pairs stay server-side in a D1 record. A 256-bit HttpOnly, Secure, SameSite=Strict cookie locates the record by its hash; a separate mutation token binds browser writes. No account, model key, wallet, real site, or personal data is needed. Visitors control only their own synthetic owner. This grants no authority over real resources or another visitor.
 

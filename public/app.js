@@ -52,7 +52,21 @@ $('execute').addEventListener('click',()=>run(async()=>{if(!decision)return;cons
 for(const mode of ['grant','narrow','revoke'])$(mode).addEventListener('click',()=>run(async()=>{await api('/api/trust',{mode});await refresh();if(decision){const note=element('div','Trust changed. This prepared task retains its original grant; execution will recheck it.','result-note');$('decision-content').append(note);}}));
 const stable=value=>value===null||typeof value!=='object'?JSON.stringify(value):Array.isArray(value)?`[${value.map(stable).join(',')}]`:`{${Object.keys(value).sort().map(k=>`${JSON.stringify(k)}:${stable(value[k])}`).join(',')}}`;
 const decode=value=>Uint8Array.from(atob(value.replaceAll('-','+').replaceAll('_','/')),c=>c.charCodeAt(0));
-async function verifyEnvelope(domain,env,publicPem){const der=decode(publicPem.replace(/-----[^-]+-----/g,'').replace(/\s/g,''));const key=await crypto.subtle.importKey('spki',der,'Ed25519',false,['verify']);return crypto.subtle.verify('Ed25519',key,decode(env.signature),new TextEncoder().encode(`relay-trust/v1/${domain}\n${stable(env.payload)}`));}
+const alphabet58='123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+function encode58(bytes){let n=0n,out='';for(const b of bytes)n=(n<<8n)+BigInt(b);while(n){out=alphabet58[Number(n%58n)]+out;n/=58n;}for(const b of bytes){if(b)break;out='1'+out;}return out;}
+function decode58(value){let n=0n;for(const c of value){const i=alphabet58.indexOf(c);if(i<0)throw Error('Invalid base58');n=n*58n+BigInt(i);}const bytes=[];while(n){bytes.unshift(Number(n%256n));n/=256n;}for(const c of value){if(c!=='1')break;bytes.unshift(0);}return new Uint8Array(bytes);}
+async function verifyEnvelope(domain,env,publicPem){
+ const der=decode(publicPem.replace(/-----[^-]+-----/g,'').replace(/\s/g,'')),key=await crypto.subtle.importKey('spki',der,'Ed25519',true,['verify']);
+ if(!await crypto.subtle.verify('Ed25519',key,decode(env.signature),new TextEncoder().encode(`relay-trust/v1/${domain}\n${stable(env.payload)}`)))return false;
+ if(env.payload.credentialProfile==='vc-data-integrity/v2'&&!env.verifiableCredential)return false;
+ if(!env.verifiableCredential)return true;
+ try{const vc=env.verifiableCredential,{proof,...document}=vc,{proofValue,...options}=proof,raw=new Uint8Array(await crypto.subtle.exportKey('raw',key)),fingerprint='z'+encode58(new Uint8Array([0xed,1,...raw])),did='did:key:'+fingerprint;
+ if(domain!=='credential'||document.issuer!==did||proof.verificationMethod!==did+'#'+fingerprint||proof.type!=='DataIntegrityProof'||proof.cryptosuite!=='eddsa-jcs-2022'||proof.proofPurpose!=='assertionMethod'||!Number.isFinite(Date.parse(proof.created))||proofValue[0]!=='z'||document['@context'][0]!=='https://www.w3.org/ns/credentials/v2'||stable(document.credentialSubject.claims)!==stable(env.payload)||document.credentialSubject.id!==env.payload.subject||document.id!=='urn:uuid:'+env.payload.id||document.validFrom!==new Date(env.payload.notBefore).toISOString()||document.validUntil!==new Date(env.payload.expiresAt).toISOString())return false;
+ if(!Array.isArray(options['@context'])||options['@context'].some((v,i)=>stable(v)!==stable(document['@context'][i])))return false;document['@context']=options['@context'];
+ const hash=async v=>new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(stable(v)))),combined=new Uint8Array([...(await hash(options)),...(await hash(document))]);
+ return crypto.subtle.verify('Ed25519',key,decode58(proofValue.slice(1)),combined);
+ }catch{return false;}
+}
 $('verify').addEventListener('click',()=>run(async()=>{
   await refresh();const checks=[['credential',state.delegation,state.identities.owner.publicKey],['credential',state.attestation,state.identities.lab.publicKey],...state.receipts.map(r=>['receipt',r,Object.values(state.identities).find(i=>i.id===r.payload.issuer).publicKey])];
   const outcomes=await Promise.all(checks.map(c=>verifyEnvelope(...c)));

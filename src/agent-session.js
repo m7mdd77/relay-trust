@@ -1,0 +1,26 @@
+import {spawn} from 'node:child_process';
+import {createInterface} from 'node:readline';
+import {randomUUID} from 'node:crypto';
+import {newIdentity,publicIdentity,signed,digest,authentic} from './crypto.js';
+export class AgentSession {
+ constructor(){this.processes=[];this.busy=false;this.trace=[];this.revoked=[];this.used=0;}
+ event(type,data){this.trace.push({type,at:new Date().toISOString(),...data});}
+ async start(){if(this.identities)return;const launch=role=>{const child=spawn(process.execPath,[new URL('./agent-worker.js',import.meta.url).pathname.replace(/^\/([A-Za-z]:)/,'$1'),role],{env:process.env,windowsHide:true,stdio:['pipe','pipe','pipe']});this.processes.push(child);child.stderr.on('data',()=>{});const pending=new Map();createInterface({input:child.stdout}).on('line',line=>{try{const message=JSON.parse(line),p=pending.get(message.rpcId);if(p){pending.delete(message.rpcId);clearTimeout(p.timer);message.error?p.reject(Error(message.error)):p.resolve(message.result);}}catch{}});child.on('exit',()=>{for(const p of pending.values()){clearTimeout(p.timer);p.reject(Error('Agent process exited'));}pending.clear();});return command=>new Promise((resolve,reject)=>{const rpcId=randomUUID(),timer=setTimeout(()=>{pending.delete(rpcId);reject(Error('Agent timed out'));},100000);pending.set(rpcId,{resolve,reject,timer});child.stdin.write(JSON.stringify({...command,rpcId})+'\n');});};
+  this.scout=launch('scout');this.steward=launch('steward');const scout=await this.scout({command:'hello'}),steward=await this.steward({command:'hello'});this.owner=newIdentity('Owner','owner');this.lab=newIdentity('Evidence Lab','lab');this.outsider=newIdentity('Mirror','outsider');this.owner.id=this.owner.did;this.lab.id=this.lab.did;this.outsider.id=this.outsider.did;
+  this.identities={owner:publicIdentity(this.owner),lab:publicIdentity(this.lab),outsider:publicIdentity(this.outsider),scout:scout.identity,steward:steward.identity};await this.steward({command:'initialize',identities:this.identities});this.event('processes.started',{scoutPid:scout.pid,stewardPid:steward.pid,identities:this.identities});
+  const now=Date.now();this.history=Array.from({length:3},()=>signed('receipt',{id:randomUUID(),issuer:this.lab.id,actor:scout.identity.id,action:'sandbox.inspect',resource:'SITE-17',synthetic:true,at:now},this.lab.privateKey));
+  this.delegation=signed('credential',{format:'relay-credential/v1',id:randomUUID(),kind:'delegation',issuer:this.owner.id,subject:scout.identity.id,audience:steward.identity.id,notBefore:now-1000,expiresAt:now+86400000,capabilities:['ticket.create'],resources:['SITE-17'],maxItems:3},this.owner.privateKey);
+  this.attestation=signed('credential',{format:'relay-credential/v1',id:randomUUID(),kind:'attestation',issuer:this.lab.id,subject:scout.identity.id,audience:steward.identity.id,notBefore:now-1000,expiresAt:now+86400000,claim:{type:'sandbox.inspection',successfulInspections:3,environment:'synthetic',receiptHashes:this.history.map(digest)}},this.lab.privateKey);
+ }
+ context(){return {request:this.pending.request,delegation:this.delegation,attestation:this.attestation,history:this.history,revoked:this.revoked,used:this.used,proposal:this.pending.proposal.parsed};}
+ async act(mode){if(this.busy)throw Error('Agent request in progress');this.busy=true;try{await this.start();let result;
+  if(mode==='run'){if(this.pending)throw Error('Live model run already completed; use replay or the failure tests');this.pending=await this.scout({command:'propose',delegation:this.delegation,attestation:this.attestation,to:this.identities.steward.id});this.event('scout.ai_proposal',this.pending);result=await this.steward({command:'prepare',...this.context()});this.event('steward.ai_review',result);}
+  else if(mode==='execute'||mode==='replay'){if(!this.pending)throw Error('Run the AI agents first');result=await this.steward({command:'execute',...this.context()});if(result.status==='executed'){if(!authentic('receipt',result.receipt,this.identities.steward.publicKey))throw Error('Invalid agent receipt');this.used++;}this.event('steward.'+result.status,result);}
+  else if(mode==='spoof'){if(!this.pending)throw Error('Run the AI agents first');const request=signed('request',{...this.pending.request.payload,id:randomUUID()},this.outsider.privateKey);result=await this.steward({command:'prepare',...this.context(),request});this.event('spoof.refused',result);}
+  else if(mode==='prepare'){this.pending=await this.scout({command:'reissue',delegation:this.delegation,attestation:this.attestation,to:this.identities.steward.id});result=await this.steward({command:'prepare',...this.context()});this.event('steward.prepared',result);}
+  else if(mode==='revoke'){this.revoked.push(this.delegation.payload.id);result={status:'revoked'};this.event('owner.revoked',result);}
+  else throw Error('Unsupported agent mode');return {result,...this.state()};
+ }finally{this.busy=false;}}
+ state(){return {configured:!!process.env.RELAY_AGENT_ENV,trace:this.trace,identities:this.identities,delegation:this.delegation,attestation:this.attestation,used:this.used,revoked:this.revoked,synthetic:true};}
+ close(){for(const child of this.processes)child.kill();}
+}

@@ -1,4 +1,5 @@
 import {generateKeyPairSync, createPublicKey, sign, verify, createHash} from 'node:crypto';
+import {didKey,issueCredential,verifyCredential} from './credentials.js';
 
 export const canonical = value => {
   if (value === null || ['string', 'boolean'].includes(typeof value)) return JSON.stringify(value);
@@ -14,17 +15,20 @@ export function newIdentity(name, role) {
   const {publicKey, privateKey} = generateKeyPairSync('ed25519');
   const publicPem = publicKey.export({type:'spki', format:'pem'});
   const id = `urn:relay:${createHash('sha256').update(publicKey.export({type:'spki',format:'der'})).digest('hex')}`;
-  return {id,name,role,publicKey:publicPem,privateKey:privateKey.export({type:'pkcs8',format:'pem'})};
+  return {id,did:didKey(publicPem),name,role,publicKey:publicPem,privateKey:privateKey.export({type:'pkcs8',format:'pem'})};
 }
 export function signed(domain, payload, key) {
-  return {payload, signature:sign(null,bytes(domain,payload),key).toString('base64url')};
+  if(domain==='credential')payload={...payload,credentialProfile:'vc-data-integrity/v2'};
+  const envelope={payload, signature:sign(null,bytes(domain,payload),key).toString('base64url')};
+  if(domain==='credential')envelope.verifiableCredential=issueCredential(payload,key);
+  return envelope;
 }
 export function authentic(domain, envelope, key) {
   try {
-    if (!envelope || Object.keys(envelope).sort().join(',') !== 'payload,signature' ||
+    if (!envelope || !['payload,signature','payload,signature,verifiableCredential'].includes(Object.keys(envelope).sort().join(',')) ||
         typeof envelope.signature !== 'string' || !/^[A-Za-z0-9_-]{86}$/.test(envelope.signature)) return false;
     const publicKey = createPublicKey(key);
-    return publicKey.asymmetricKeyType === 'ed25519' && verify(null,bytes(domain,envelope.payload),publicKey,Buffer.from(envelope.signature,'base64url'));
+    return publicKey.asymmetricKeyType === 'ed25519' && verify(null,bytes(domain,envelope.payload),publicKey,Buffer.from(envelope.signature,'base64url')) && (envelope.payload.credentialProfile!=='vc-data-integrity/v2'||!!envelope.verifiableCredential) && (!envelope.verifiableCredential || domain==='credential'&&verifyCredential(envelope.verifiableCredential,envelope.payload,key));
   } catch { return false; }
 }
 export const publicIdentity = ({privateKey,...identity}) => identity;
