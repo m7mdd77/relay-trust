@@ -3,30 +3,30 @@
   "trace": [
     {
       "type": "processes.started",
-      "at": "2026-10-13T08:10:43.662Z",
-      "scoutPid": 2712,
-      "stewardPid": 28744,
+      "at": "2026-10-14T05:20:51.810Z",
+      "scoutPid": 14048,
+      "stewardPid": 30124,
       "identities": {
         "owner": {
-          "id": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
-          "did": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+          "id": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
+          "did": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
           "name": "Owner",
           "role": "owner",
-          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAKzaenAc3vxONapuN3wDFWBXcuXnQkNZAZkzw5+lsnRY=\n-----END PUBLIC KEY-----\n"
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAy8C9kFmIPxXsmOIS0/iYp3cz3kyp+m1u5r/eYYexzSM=\n-----END PUBLIC KEY-----\n"
         },
         "lab": {
-          "id": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
-          "did": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+          "id": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+          "did": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
           "name": "Evidence Lab",
           "role": "lab",
-          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEACyTs3ERmy7+QrebcGJm9eogGI8Rp3XxofONESrnEg8Y=\n-----END PUBLIC KEY-----\n"
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAUY+HABqFDe1gv84JpqGtrfLehwK8LWrjGA/hpQrtbJ0=\n-----END PUBLIC KEY-----\n"
         },
         "outsider": {
-          "id": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
-          "did": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+          "id": "did:key:z6MkuL24t6FhEnwa7PkRQWo3NNtdfP9uMTuch8AHG9aygPVe",
+          "did": "did:key:z6MkuL24t6FhEnwa7PkRQWo3NNtdfP9uMTuch8AHG9aygPVe",
           "name": "Mirror",
           "role": "outsider",
-          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAvrZJigMFOkPVzeEX/V4x9DkTgMKaQlBVQINrHq6PinM=\n-----END PUBLIC KEY-----\n"
+          "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA3QRu/FnilB9NBvD9KCJmz5h5CqQuFJIZfdJYxlOqfk0=\n-----END PUBLIC KEY-----\n"
         },
         "scout": {
           "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
@@ -46,33 +46,33 @@
     },
     {
       "type": "scout.ai_proposal",
-      "at": "2026-10-13T08:10:46.346Z",
+      "at": "2026-10-14T05:20:55.705Z",
       "request": {
         "payload": {
           "format": "relay-request/v1",
-          "id": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
+          "id": "ec6e4f40-e3c9-4de0-9b73-a038e0ce123a",
           "from": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
           "to": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
           "action": "ticket.create",
           "resource": "SITE-17",
-          "notBefore": 1791879045354,
-          "expiresAt": 1791879346354,
-          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
-          "attestationId": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
-          "delegationHash": "fda30d72e6773f071e831b30451a98c670ede288dfcdb6ee4cf55374e2f3098c",
-          "attestationHash": "dc3d5f0b66fa99140137fc7960d14a413c331e4fcf73b92ac8b7801535994b2d"
+          "notBefore": 1791955254704,
+          "expiresAt": 1791955555704,
+          "delegationId": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
+          "attestationId": "f5312992-f2c2-4d7b-9836-099da52f2e04",
+          "delegationHash": "b08fc89d615f9282dede360726fdb457c3ba4a9330e4f8c441b25f43726c0083",
+          "attestationHash": "070a83dee2465301484c09e53b72c2b75d033d5fb070ed66580e19c6c3027d39"
         },
-        "signature": "7cd-HmgiLXHdil4DQ58_ftysT8hpSiVCZzhabsl1rNzYpYgz70f4QWOwYGrr_lmcey-8pDqT8hjCbZs_Hf4mCA"
+        "signature": "sW8Qy9SsWDeIojw5WDzPvXpLaCkePfvfau5HwDCGtfdouBdEKtCT-niYjWci7ASHiSlg-qNKV3URwjffTbPPAA"
       },
       "proposal": {
-        "text": "{\"action\":\"ticket.create\",\"resource\":\"SITE-17\",\"summary\":\"Synthetic broken-link finding: lab-attested inspection of SITE-17 flagged one unresolved broken link for repair.\"}",
+        "text": "{\"action\":\"ticket.create\",\"resource\":\"SITE-17\",\"summary\":\"Synthetic inspection found a broken link on SITE-17 (lab-attested, 3/3 successful synthetic inspections).\"}",
         "provider": "AgentRouter",
         "model": "deepseek-v4-flash",
         "usage": {
-          "input_tokens": 787,
+          "input_tokens": 779,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "output_tokens": 87,
+          "output_tokens": 194,
           "server_tool_use": {
             "web_search_requests": 0,
             "web_fetch_requests": 0
@@ -89,14 +89,14 @@
         "parsed": {
           "action": "ticket.create",
           "resource": "SITE-17",
-          "summary": "Synthetic broken-link finding: lab-attested inspection of SITE-17 flagged one unresolved broken link for repair."
+          "summary": "Synthetic inspection found a broken link on SITE-17 (lab-attested, 3/3 successful synthetic inspections)."
         },
         "reused": false
       }
     },
     {
       "type": "steward.ai_review",
-      "at": "2026-10-13T08:10:48.960Z",
+      "at": "2026-10-14T05:20:58.452Z",
       "status": "prepared",
       "evaluation": {
         "allowed": true,
@@ -178,17 +178,17 @@
           }
         ],
         "failed": [],
-        "evaluatedAt": 1791879048968
+        "evaluatedAt": 1791955258450
       },
       "analysis": {
-        "text": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+        "text": "All 15 verification checks pass, so the draft proposes creating a synthetic repair ticket on SITE-17, backed by three lab-attested successful synthetic inspections of a broken link.",
         "provider": "AgentRouter",
         "model": "deepseek-v4-flash",
         "usage": {
-          "input_tokens": 580,
+          "input_tokens": 582,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "output_tokens": 53,
+          "output_tokens": 60,
           "server_tool_use": {
             "web_search_requests": 0,
             "web_fetch_requests": 0
@@ -206,23 +206,23 @@
     },
     {
       "type": "steward.executed",
-      "at": "2026-10-13T08:10:48.964Z",
+      "at": "2026-10-14T05:20:58.455Z",
       "status": "executed",
       "receipt": {
         "payload": {
-          "id": "252a4c4e-c536-4205-a279-ed7e052bbc04",
-          "requestId": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
-          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
-          "requestHash": "9be09e64438e4a00b76cde5837d5d8f56498c9807dc9da9d33d51cca44ff3db2",
+          "id": "e1ff995a-e2f0-4527-b4b2-c9e7d0967d12",
+          "requestId": "ec6e4f40-e3c9-4de0-9b73-a038e0ce123a",
+          "delegationId": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
+          "requestHash": "a160f6a671e1760afd994970d2b6c33f425022fef9b67dcb210df5858097ae90",
           "issuer": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
           "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
           "action": "ticket.create",
           "resource": "SITE-17",
           "synthetic": true,
-          "result": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
-          "at": 1791879048972
+          "result": "All 15 verification checks pass, so the draft proposes creating a synthetic repair ticket on SITE-17, backed by three lab-attested successful synthetic inspections of a broken link.",
+          "at": 1791955258455
         },
-        "signature": "rBsWMn3RGxpfRNXNMheW_DlaldwB3gIzPJcyoXba0qU9hApSbr-0SUKwbH77H1GOFHk1BDqBG0w2cd66IUS1Cg"
+        "signature": "WWBBGSiJkwB3wibEXecUtwOrIsKHUB7ujV5Ih4AJgIqI4BLjBPg-YNfs7fr3WRTCBCQjFEbGkP25i-iUDTDhCA"
       },
       "evaluation": {
         "allowed": true,
@@ -304,33 +304,33 @@
           }
         ],
         "failed": [],
-        "evaluatedAt": 1791879048970
+        "evaluatedAt": 1791955258452
       }
     },
     {
       "type": "steward.already_executed",
-      "at": "2026-10-13T08:10:48.964Z",
+      "at": "2026-10-14T05:20:58.456Z",
       "status": "already_executed",
       "receipt": {
         "payload": {
-          "id": "252a4c4e-c536-4205-a279-ed7e052bbc04",
-          "requestId": "f8e764dc-99f6-4b97-b40b-c0ec197b6a53",
-          "delegationId": "f8cd2dae-ba67-430a-aece-aa752332ce02",
-          "requestHash": "9be09e64438e4a00b76cde5837d5d8f56498c9807dc9da9d33d51cca44ff3db2",
+          "id": "e1ff995a-e2f0-4527-b4b2-c9e7d0967d12",
+          "requestId": "ec6e4f40-e3c9-4de0-9b73-a038e0ce123a",
+          "delegationId": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
+          "requestHash": "a160f6a671e1760afd994970d2b6c33f425022fef9b67dcb210df5858097ae90",
           "issuer": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
           "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
           "action": "ticket.create",
           "resource": "SITE-17",
           "synthetic": true,
-          "result": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
-          "at": 1791879048972
+          "result": "All 15 verification checks pass, so the draft proposes creating a synthetic repair ticket on SITE-17, backed by three lab-attested successful synthetic inspections of a broken link.",
+          "at": 1791955258455
         },
-        "signature": "rBsWMn3RGxpfRNXNMheW_DlaldwB3gIzPJcyoXba0qU9hApSbr-0SUKwbH77H1GOFHk1BDqBG0w2cd66IUS1Cg"
+        "signature": "WWBBGSiJkwB3wibEXecUtwOrIsKHUB7ujV5Ih4AJgIqI4BLjBPg-YNfs7fr3WRTCBCQjFEbGkP25i-iUDTDhCA"
       }
     },
     {
       "type": "spoof.refused",
-      "at": "2026-10-13T08:10:48.966Z",
+      "at": "2026-10-14T05:20:58.458Z",
       "status": "refused",
       "evaluation": {
         "allowed": false,
@@ -414,12 +414,62 @@
         "failed": [
           "request_signature"
         ],
-        "evaluatedAt": 1791879048974
+        "evaluatedAt": 1791955258457
+      }
+    },
+    {
+      "type": "scout.signed_request",
+      "at": "2026-10-14T05:20:58.459Z",
+      "request": {
+        "payload": {
+          "format": "relay-request/v1",
+          "id": "209e34e9-1d19-4a8b-b479-4919405e2625",
+          "from": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+          "to": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "notBefore": 1791955257459,
+          "expiresAt": 1791955558459,
+          "delegationId": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
+          "attestationId": "f5312992-f2c2-4d7b-9836-099da52f2e04",
+          "delegationHash": "b08fc89d615f9282dede360726fdb457c3ba4a9330e4f8c441b25f43726c0083",
+          "attestationHash": "070a83dee2465301484c09e53b72c2b75d033d5fb070ed66580e19c6c3027d39"
+        },
+        "signature": "QLF471GhR10346jAL7eocsCGGGqadH3iC6bEpv2nStp_q7YJxH11WhDgKuCsQg7IteJ4V2E7X0Pr_sy5Afl3Aw"
+      },
+      "proposal": {
+        "text": "{\"action\":\"ticket.create\",\"resource\":\"SITE-17\",\"summary\":\"Synthetic inspection found a broken link on SITE-17 (lab-attested, 3/3 successful synthetic inspections).\"}",
+        "provider": "AgentRouter",
+        "model": "deepseek-v4-flash",
+        "usage": {
+          "input_tokens": 779,
+          "cache_creation_input_tokens": 0,
+          "cache_read_input_tokens": 0,
+          "output_tokens": 194,
+          "server_tool_use": {
+            "web_search_requests": 0,
+            "web_fetch_requests": 0
+          },
+          "service_tier": "standard",
+          "cache_creation": {
+            "ephemeral_1h_input_tokens": 0,
+            "ephemeral_5m_input_tokens": 0
+          },
+          "inference_geo": "",
+          "iterations": [],
+          "speed": "standard"
+        },
+        "parsed": {
+          "action": "ticket.create",
+          "resource": "SITE-17",
+          "summary": "Synthetic inspection found a broken link on SITE-17 (lab-attested, 3/3 successful synthetic inspections)."
+        },
+        "reused": true
       }
     },
     {
       "type": "steward.prepared",
-      "at": "2026-10-13T08:10:48.970Z",
+      "at": "2026-10-14T05:20:58.462Z",
       "status": "prepared",
       "evaluation": {
         "allowed": true,
@@ -501,17 +551,17 @@
           }
         ],
         "failed": [],
-        "evaluatedAt": 1791879048979
+        "evaluatedAt": 1791955258461
       },
       "analysis": {
-        "text": "All 15 checks pass, so the draft proposes creating a synthetic repair ticket for SITE-17 recording one unresolved broken link from lab-attested inspection.",
+        "text": "All 15 verification checks pass, so the draft proposes creating a synthetic repair ticket on SITE-17, backed by three lab-attested successful synthetic inspections of a broken link.",
         "provider": "AgentRouter",
         "model": "deepseek-v4-flash",
         "usage": {
-          "input_tokens": 580,
+          "input_tokens": 582,
           "cache_creation_input_tokens": 0,
           "cache_read_input_tokens": 0,
-          "output_tokens": 53,
+          "output_tokens": 60,
           "server_tool_use": {
             "web_search_requests": 0,
             "web_fetch_requests": 0
@@ -529,12 +579,12 @@
     },
     {
       "type": "owner.revoked",
-      "at": "2026-10-13T08:10:48.970Z",
+      "at": "2026-10-14T05:20:58.462Z",
       "status": "revoked"
     },
     {
       "type": "steward.blocked",
-      "at": "2026-10-13T08:10:48.972Z",
+      "at": "2026-10-14T05:20:58.463Z",
       "status": "blocked",
       "evaluation": {
         "allowed": false,
@@ -618,31 +668,31 @@
         "failed": [
           "revocation"
         ],
-        "evaluatedAt": 1791879048980
+        "evaluatedAt": 1791955258462
       }
     }
   ],
   "identities": {
     "owner": {
-      "id": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
-      "did": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "id": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
+      "did": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
       "name": "Owner",
       "role": "owner",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAKzaenAc3vxONapuN3wDFWBXcuXnQkNZAZkzw5+lsnRY=\n-----END PUBLIC KEY-----\n"
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAy8C9kFmIPxXsmOIS0/iYp3cz3kyp+m1u5r/eYYexzSM=\n-----END PUBLIC KEY-----\n"
     },
     "lab": {
-      "id": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
-      "did": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "id": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+      "did": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
       "name": "Evidence Lab",
       "role": "lab",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEACyTs3ERmy7+QrebcGJm9eogGI8Rp3XxofONESrnEg8Y=\n-----END PUBLIC KEY-----\n"
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAUY+HABqFDe1gv84JpqGtrfLehwK8LWrjGA/hpQrtbJ0=\n-----END PUBLIC KEY-----\n"
     },
     "outsider": {
-      "id": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
-      "did": "did:key:z6MksHiiwE8X6n2mBh8CnAxdViDZSDsuLyr9oXu1tXWyGERx",
+      "id": "did:key:z6MkuL24t6FhEnwa7PkRQWo3NNtdfP9uMTuch8AHG9aygPVe",
+      "did": "did:key:z6MkuL24t6FhEnwa7PkRQWo3NNtdfP9uMTuch8AHG9aygPVe",
       "name": "Mirror",
       "role": "outsider",
-      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAvrZJigMFOkPVzeEX/V4x9DkTgMKaQlBVQINrHq6PinM=\n-----END PUBLIC KEY-----\n"
+      "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEA3QRu/FnilB9NBvD9KCJmz5h5CqQuFJIZfdJYxlOqfk0=\n-----END PUBLIC KEY-----\n"
     },
     "scout": {
       "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
@@ -662,13 +712,13 @@
   "delegation": {
     "payload": {
       "format": "relay-credential/v1",
-      "id": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+      "id": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
       "kind": "delegation",
-      "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+      "issuer": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
       "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
       "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
-      "notBefore": 1791879042663,
-      "expiresAt": 1791965443663,
+      "notBefore": 1791955250811,
+      "expiresAt": 1792041651811,
       "capabilities": [
         "ticket.create"
       ],
@@ -678,7 +728,7 @@
       "maxItems": 3,
       "credentialProfile": "vc-data-integrity/v2"
     },
-    "signature": "l490ZHXIikwH62PiXC3XCmvxEA7t6xnYOZGhdKhtO67igrBPtbYDBszDqdZOvshbAk2VbEZsM3iAgLSx5dLMAw",
+    "signature": "Oe9QKSGGQxXP1urLjwjk-NfMNA5F3nirdhkDZSBO-fV2l-TqPiF9N0zJaGb4I2GVDhe7nljv4v0hRU9CPgqOBw",
     "verifiableCredential": {
       "@context": [
         "https://www.w3.org/ns/credentials/v2",
@@ -692,25 +742,25 @@
           }
         }
       ],
-      "id": "urn:uuid:f8cd2dae-ba67-430a-aece-aa752332ce02",
+      "id": "urn:uuid:f521c388-7f2c-4ce9-999c-a64e9bb603a7",
       "type": [
         "VerifiableCredential",
         "RelayDelegationCredential"
       ],
-      "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
-      "validFrom": "2026-10-13T08:10:42.663Z",
-      "validUntil": "2026-10-14T08:10:43.663Z",
+      "issuer": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
+      "validFrom": "2026-10-14T05:20:50.811Z",
+      "validUntil": "2026-10-15T05:20:51.811Z",
       "credentialSubject": {
         "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
         "claims": {
           "format": "relay-credential/v1",
-          "id": "f8cd2dae-ba67-430a-aece-aa752332ce02",
+          "id": "f521c388-7f2c-4ce9-999c-a64e9bb603a7",
           "kind": "delegation",
-          "issuer": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+          "issuer": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
           "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
           "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
-          "notBefore": 1791879042663,
-          "expiresAt": 1791965443663,
+          "notBefore": 1791955250811,
+          "expiresAt": 1792041651811,
           "capabilities": [
             "ticket.create"
           ],
@@ -736,36 +786,36 @@
         ],
         "type": "DataIntegrityProof",
         "cryptosuite": "eddsa-jcs-2022",
-        "created": "2026-10-13T08:10:43.664Z",
-        "verificationMethod": "did:key:z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF#z6MkhMwt8LCsgM3tUCnLkb7pCEu3A8i2QCvWRCr2QLNHzsDF",
+        "created": "2026-10-14T05:20:51.812Z",
+        "verificationMethod": "did:key:z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn#z6MktAdGYT2revkQM9ULUkMtTRDGWrnaTaJJ9KrJcnxw3gSn",
         "proofPurpose": "assertionMethod",
-        "proofValue": "z9PzasjWzGGuLsw2NiYrhA6cJY9yjbH8nV27wGj6P2LgiQ5D5cvuK1SXsMYzKHgmu2EFAwbCsLaC3CmR2dXAoGNg"
+        "proofValue": "zE1jAqEW7xrZuyCUznjHNpqnMhHHA86uWCRfsoZh32PKdYNP1iMVQGeGmFvoXB7MVN8EEMgJEqkQqBGpr5mTfZqK"
       }
     }
   },
   "attestation": {
     "payload": {
       "format": "relay-credential/v1",
-      "id": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+      "id": "f5312992-f2c2-4d7b-9836-099da52f2e04",
       "kind": "attestation",
-      "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+      "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
       "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
       "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
-      "notBefore": 1791879042663,
-      "expiresAt": 1791965443663,
+      "notBefore": 1791955250811,
+      "expiresAt": 1792041651811,
       "claim": {
         "type": "sandbox.inspection",
         "successfulInspections": 3,
         "environment": "synthetic",
         "receiptHashes": [
-          "3b8c0405e608f715a76d1b57b4aa49026f0a94b0690de669495438a93d3c4541",
-          "cb435661d789ebf14bf47f01d54a36a683c392fa43985db584004f16d0f0e3a4",
-          "a7f163ee7d5634f4907b01dba20bc85509ecb5e60544b5517267d7c8fbed7685"
+          "ccb8a9270929d9fe4cedc7f6e27d5b54eacb104340fab2e673503ce5ea4dbdad",
+          "3a3e8acd4267f605442b2adbd884a16782e1c22c4fe2d1a21477e50572849c6e",
+          "e017657cdb7f80965e7705923652586797568ccea0dff9774baee280851b9755"
         ]
       },
       "credentialProfile": "vc-data-integrity/v2"
     },
-    "signature": "IomqYsF3LsXJmQJwfvEOHgX_uzNJ1ytyaAtfEpA7hXD75bpaVen2D0FbrkEXhZPnKgN82hcR3j3FqKP9aEccCg",
+    "signature": "-Q2JJlhRWG-KmPAcXPupj_Qb9x0JJNE3qrqkRTOO-gJVVHOIxma3JH5NNS8v2F58s69aVtAj0FrBic50zY37Dw",
     "verifiableCredential": {
       "@context": [
         "https://www.w3.org/ns/credentials/v2",
@@ -779,33 +829,33 @@
           }
         }
       ],
-      "id": "urn:uuid:7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+      "id": "urn:uuid:f5312992-f2c2-4d7b-9836-099da52f2e04",
       "type": [
         "VerifiableCredential",
         "RelayAttestationCredential"
       ],
-      "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
-      "validFrom": "2026-10-13T08:10:42.663Z",
-      "validUntil": "2026-10-14T08:10:43.663Z",
+      "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+      "validFrom": "2026-10-14T05:20:50.811Z",
+      "validUntil": "2026-10-15T05:20:51.811Z",
       "credentialSubject": {
         "id": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
         "claims": {
           "format": "relay-credential/v1",
-          "id": "7faa2ea1-9ab0-48d9-9e01-0b2076b40e9f",
+          "id": "f5312992-f2c2-4d7b-9836-099da52f2e04",
           "kind": "attestation",
-          "issuer": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+          "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
           "subject": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
           "audience": "did:key:z6Mkfw7yX7Bs8gwP2GFFnkvQ5avwMiKnMXqSuvMbTZxrqMwb",
-          "notBefore": 1791879042663,
-          "expiresAt": 1791965443663,
+          "notBefore": 1791955250811,
+          "expiresAt": 1792041651811,
           "claim": {
             "type": "sandbox.inspection",
             "successfulInspections": 3,
             "environment": "synthetic",
             "receiptHashes": [
-              "3b8c0405e608f715a76d1b57b4aa49026f0a94b0690de669495438a93d3c4541",
-              "cb435661d789ebf14bf47f01d54a36a683c392fa43985db584004f16d0f0e3a4",
-              "a7f163ee7d5634f4907b01dba20bc85509ecb5e60544b5517267d7c8fbed7685"
+              "ccb8a9270929d9fe4cedc7f6e27d5b54eacb104340fab2e673503ce5ea4dbdad",
+              "3a3e8acd4267f605442b2adbd884a16782e1c22c4fe2d1a21477e50572849c6e",
+              "e017657cdb7f80965e7705923652586797568ccea0dff9774baee280851b9755"
             ]
           },
           "credentialProfile": "vc-data-integrity/v2"
@@ -826,19 +876,57 @@
         ],
         "type": "DataIntegrityProof",
         "cryptosuite": "eddsa-jcs-2022",
-        "created": "2026-10-13T08:10:43.665Z",
-        "verificationMethod": "did:key:z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF#z6MkfCmBoPesiJq4WB8quGi2tA7bLVbReAxwLLr6M1bQGFDF",
+        "created": "2026-10-14T05:20:51.813Z",
+        "verificationMethod": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU#z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
         "proofPurpose": "assertionMethod",
-        "proofValue": "z2DHpRngdkbPA3igxAZGVyZaKfKjKUxTVM3sjQSvYaopW7uyyUqyhEuUyFnzpzjvg3R4m8Kma8EnJtyskJ5zvayRY"
+        "proofValue": "z47E2TAw346ViTLtNc8cFXN2Xjs2vEJxHL3eABst9DRbk28WyEdqUsZV5NkZkXF8qwmYgpKaZ8W23yvhKeta3stJq"
       }
     }
   },
+  "history": [
+    {
+      "payload": {
+        "id": "ed2fa6aa-e8d7-4282-81b3-2a1481d55508",
+        "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+        "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+        "action": "sandbox.inspect",
+        "resource": "SITE-17",
+        "synthetic": true,
+        "at": 1791955251811
+      },
+      "signature": "QhGbExWxVrII3hIrEpfngMKyEDP7XSJMh9HpHk5hK5C3D3QS6Rp3fxNp6o7txncFb-OYmCkY0Zw8XljR6u0yAQ"
+    },
+    {
+      "payload": {
+        "id": "5165be78-ab60-4246-aef8-52a133c09d7e",
+        "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+        "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+        "action": "sandbox.inspect",
+        "resource": "SITE-17",
+        "synthetic": true,
+        "at": 1791955251811
+      },
+      "signature": "NSXYKlhZu1Gzp6T26T5kdCp7ZPxCEVJsziuXkOPvj4_XqcRxvshk0c5eraRm1qMuq4Bd1QDbkHw1mciqXjYXCA"
+    },
+    {
+      "payload": {
+        "id": "a28c8be0-9569-4b55-80ac-64efcb019958",
+        "issuer": "did:key:z6Mkjwe1G7h4yD1nMVBxxGoZ9wo3YQxkXLVio5Z8JHZRcTeU",
+        "actor": "did:key:z6Mkhie3D4e8MV2x4aqnvKM1RsckGEtJEwUCqh88t6HvxDRK",
+        "action": "sandbox.inspect",
+        "resource": "SITE-17",
+        "synthetic": true,
+        "at": 1791955251811
+      },
+      "signature": "_UFxVnPInGn4a3tO24VM8lYnTq7z2OiCZC2jMBollds28-LVw7ujAMwtmpXm9JqgiiPZ998CnAHOAcssLzrtDw"
+    }
+  ],
   "used": 1,
   "revoked": [
-    "f8cd2dae-ba67-430a-aece-aa752332ce02"
+    "f521c388-7f2c-4ce9-999c-a64e9bb603a7"
   ],
   "synthetic": true,
-  "checkedAt": "2026-10-13T08:10:48.972Z",
+  "checkedAt": "2026-10-14T05:20:58.463Z",
   "passed": true,
   "checks": [
     "actual Scout DeepSeek inference",

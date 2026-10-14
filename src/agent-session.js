@@ -17,10 +17,10 @@ export class AgentSession {
   if(mode==='run'){if(this.pending)throw Error('Live model run already completed; use replay or the failure tests');this.pending=await this.scout({command:'propose',delegation:this.delegation,attestation:this.attestation,to:this.identities.steward.id});this.event('scout.ai_proposal',this.pending);result=await this.steward({command:'prepare',...this.context()});this.event('steward.ai_review',result);}
   else if(mode==='execute'||mode==='replay'){if(!this.pending)throw Error('Run the AI agents first');result=await this.steward({command:'execute',...this.context()});if(result.status==='executed'){if(!authentic('receipt',result.receipt,this.identities.steward.publicKey))throw Error('Invalid agent receipt');this.used++;}this.event('steward.'+result.status,result);}
   else if(mode==='spoof'){if(!this.pending)throw Error('Run the AI agents first');const request=signed('request',{...this.pending.request.payload,id:randomUUID()},this.outsider.privateKey);result=await this.steward({command:'prepare',...this.context(),request});this.event('spoof.refused',result);}
-  else if(mode==='prepare'){this.pending=await this.scout({command:'reissue',delegation:this.delegation,attestation:this.attestation,to:this.identities.steward.id});result=await this.steward({command:'prepare',...this.context()});this.event('steward.prepared',result);}
+  else if(mode==='prepare'){this.pending=await this.scout({command:'reissue',delegation:this.delegation,attestation:this.attestation,to:this.identities.steward.id});this.event('scout.signed_request',this.pending);result=await this.steward({command:'prepare',...this.context()});this.event('steward.prepared',result);}
   else if(mode==='revoke'){this.revoked.push(this.delegation.payload.id);result={status:'revoked'};this.event('owner.revoked',result);}
   else throw Error('Unsupported agent mode');return {result,...this.state()};
  }finally{this.busy=false;}}
- state(){return {configured:!!process.env.RELAY_AGENT_ENV,trace:this.trace,identities:this.identities,delegation:this.delegation,attestation:this.attestation,used:this.used,revoked:this.revoked,synthetic:true};}
+  state(){return {configured:!!process.env.RELAY_AGENT_ENV,trace:this.trace,identities:this.identities,delegation:this.delegation,attestation:this.attestation,history:this.history||[],used:this.used,revoked:this.revoked,synthetic:true};}
  close(){for(const child of this.processes)child.kill();}
 }

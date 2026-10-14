@@ -10,12 +10,12 @@ Official mission: [The Agent That Earns Trust](https://build.doo.ooo/challenges/
 | Counterparty-based accept/refuse | Scout sends signed request to distinct Steward identity; fifteen visible checks determine decision | Implemented |
 | Architecture snapshot | `architecture.md` plus vector `architecture.svg` | Supplied |
 | Malicious/spoofed failure test | Wrong requester signing key; altered quota; scope, audience, expiry and revocation failures | Tested |
-| 90-second walkthrough | Captioned MP4 from verified UI captures; labeled capture-based, no audio | Supplied |
+| 90-second walkthrough | Continuous 90-second MediaRecorder capture of the actual independent-agent interaction, no audio | Supplied |
 | Two-year thesis ≤300 words | `thesis.md` | Supplied |
 | Public repository, clean clone runs | https://github.com/m7mdd77/relay-trust ; no dependencies/API keys; public clone checked before submission | Public source |
 | Live demo link | Local review at 3250 plus https://relay-trust-agent-lab.choggyacc.chatgpt.site | Public companion deployed and tested |
 | Notes / AI tools / decisions / limits | README, architecture, release checklist | Supplied |
-| Existing standard bonus | Native Ed25519 cryptography; versioned local envelope and key-fingerprint URNs | No VC/DID/JCS compliance claimed |
-| Cross-agent bonus | Two separately keyed named actors and signed handoff; synthetic simulation in one server | Demonstrated locally; no process isolation |
+| Existing standard bonus | Ed25519 did:key, VC 2.0, eddsa-jcs-2022; published W3C vector verified | Supported standards profile |
+| Cross-agent bonus | Separate Scout and Steward Node processes and signing keys; actual DeepSeek calls and signed handoff | Tested locally; same OS account |
 
 No external credential standard is partially marketed as complete. Real signing demonstrates authorship and payload integrity, not real-world organization identity or the truth of an issuer's claim. Issuer selection remains an explicit local trust assumption.

@@ -4,3 +4,5 @@
 .decision-panel{scroll-margin-top:20px}
 
 .document-links{display:flex;gap:22px;flex-wrap:wrap;margin-top:18px}.document-links a{font-size:12px;color:var(--green)}
+
+.live-video{display:block;max-width:100%;height:auto;margin:20px 0}

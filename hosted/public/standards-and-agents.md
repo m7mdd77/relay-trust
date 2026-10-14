@@ -23,4 +23,4 @@ In the live section: Run AI handoff → Execute → Replay → Spoof test → Pr
 
 The hosted Worker provides interactive trust fixtures, standard credentials, and the public verified AI transcript. The live independent processes run locally because Cloudflare Workers cannot spawn this installed desktop client. The hosted demo does not expose the owner's model key or paid inference endpoint.
 
-For a continuous walkthrough, choose Record this tab, select only the Relay Trust browser tab in the browser sharing picker, and perform the flow for 90 seconds. The app records an actual continuous WebM capture without microphone audio. Review and transcode the result before replacing the earlier captioned-capture video.
+For a continuous walkthrough, choose Record this tab, select only the Relay Trust browser tab in the browser sharing picker, and let the timed demonstration run for 90 seconds. The app records an actual continuous WebM capture without microphone audio. The recording is saved by the local server in its configured recording directory. The reviewed live recording replaces the earlier captioned-capture walkthrough as the current submission video.

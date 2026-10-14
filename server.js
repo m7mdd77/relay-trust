@@ -1,12 +1,12 @@
 import {createServer} from 'node:http';
-import {readFileSync} from 'node:fs';
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {randomBytes, timingSafeEqual} from 'node:crypto';
 import {resolve} from 'node:path';
 import {TrustStore} from './src/store.js';
 import {AgentSession} from './src/agent-session.js';
 
-export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
+export function createApp({dbPath=resolve('.local/trust.sqlite'),recordingDirectory=resolve('.local/recordings')}={}) {
   const store=new TrustStore(dbPath),token=randomBytes(32).toString('hex');
   const agents=new AgentSession();
   const assets=new Map([['/',['index.html','text/html; charset=utf-8']],['/app.js',['app.js','text/javascript; charset=utf-8']],['/agents.js',['agents.js','text/javascript; charset=utf-8']],['/style.css',['style.css','text/css; charset=utf-8']]].map(([route,[file,type]])=>[route,{data:readFileSync(new URL(`./public/${file}`,import.meta.url)),type}]));
@@ -33,6 +33,15 @@ export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
       if(req.headers.origin!==`http://${req.headers.host}`)return send(403,{error:'Same-origin mutation required.'});
       const supplied=req.headers['x-demo-token'];
       if(typeof supplied!=='string'||supplied.length!==token.length || !timingSafeEqual(Buffer.from(supplied),Buffer.from(token)))return send(403,{error:'Demo session token required.'});
+      if(req.url==='/api/recording'){
+        if(req.headers['content-type']!=='video/webm')return send(415,{error:'WebM recording required.'});
+        const chunks=[];let bytes=0;
+        for await(const chunk of req){bytes+=chunk.length;if(bytes>64*1024*1024){send(413,{error:'Recording exceeds 64 MB.'});req.resume();return;}chunks.push(chunk);}
+        const video=Buffer.concat(chunks);
+        if(video.length<16||video.subarray(0,4).toString('hex')!=='1a45dfa3')return send(400,{error:'Invalid WebM recording.'});
+        mkdirSync(recordingDirectory,{recursive:true});const filename=`relay-trust-live-${Date.now()}.webm`;writeFileSync(resolve(recordingDirectory,filename),video,{flag:'wx'});
+        return send(201,{saved:true,filename,bytes:video.length});
+      }
       if(req.headers['content-type']!=='application/json')return send(415,{error:'Use application/json.'});
       const window=Math.floor(Date.now()/60000),bucket=rates.get(window)||0;
       if(bucket>=120)return send(429,{error:'Demo request limit reached. Try next minute.'});
@@ -69,7 +78,7 @@ export function createApp({dbPath=resolve('.local/trust.sqlite')}={}) {
 if(process.argv[1] && resolve(process.argv[1])===fileURLToPath(import.meta.url)) {
   const port=Number(process.env.PORT||3250);
   if(!Number.isInteger(port)||port<1024||port>65535)throw new Error('Invalid PORT.');
-  const {server,store}=createApp({dbPath:process.env.RELAY_DB||resolve('.local/trust.sqlite')});
+  const {server,store}=createApp({dbPath:process.env.RELAY_DB||resolve('.local/trust.sqlite'),recordingDirectory:process.env.RELAY_RECORDING_DIRECTORY||resolve('.local/recordings')});
   server.listen(port,'127.0.0.1',()=>console.log(`Relay Trust · http://127.0.0.1:${port} · synthetic local demo`));
   const shutdown=()=>server.close(()=>{store.close();process.exit(0);});
   process.on('SIGINT',shutdown);process.on('SIGTERM',shutdown);
