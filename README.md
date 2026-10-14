@@ -5,7 +5,7 @@
 
 **Authority with evidence, at the action boundary.**
 
-[Live demo](https://relay-trust-agent-lab.choggyacc.chatgpt.site) · [90s video](docs/relay-trust-walkthrough.mp4) · [Architecture](docs/architecture.md) · [Thesis](docs/thesis.md) · [Walkthrough script](docs/walkthrough.md)
+[Live demo](https://relay-trust-agent-lab.choggyacc.chatgpt.site) · [90s live video](docs/relay-trust-live-walkthrough.mp4) · [Architecture](docs/architecture.md) · [Thesis](docs/thesis.md) · [Walkthrough script](docs/walkthrough.md)
 </div>
 
 Scout asks Patch Steward to create a synthetic repair ticket. Steward checks real Ed25519 signatures, issuer-attested action history, and a narrow delegation before acting. A valid name or reputation number alone cannot authorize a task.
@@ -47,7 +47,7 @@ The UI exposes fifteen checks and the submitted signed envelopes. Browser WebCry
 | --- | --- |
 | `server.js`, `src/` | Dependency-free Node/SQLite implementation |
 | `public/` | Responsive browser demo |
-| `test/` | 39 local cryptographic, persistence, and HTTP tests |
+| `test/` | 40 local cryptographic, persistence, and HTTP tests |
 | `hosted/` | Full Sites/Vinext/D1 companion source and lockfile |
 | `hosted/test/` | 13 hosted API/isolation/concurrency tests |
 | `docs/` | Architecture, failure evidence, 252-word thesis, walkthrough |
@@ -83,10 +83,10 @@ OpenAI Codex assisted with scenario design, implementation, tests, documentation
 - The operator timeline is not an immutable external ledger. Hosting administrators can access stored keys; production key management is outside scope.
 - No actual site repair, external tool action, account transaction, money transfer, or revenue is claimed.
 
-The walkthrough video uses captioned verified UI captures. It is labeled as a capture-based walkthrough, not a continuous live screencast.
+The current walkthrough is a continuous browser MediaRecorder capture of the actual independent-agent interaction, without microphone audio. The original captioned-capture video remains in the repository as an earlier artifact.
 
 ## Standards and live independent AI agents
 
 See [standards and agent setup](docs/standards-and-agents.md) and [the actual verified AI run](docs/independent-ai-agents.json). Set `RELAY_AGENT_ENV` to an existing private `.env` file before `npm start`. The key stays out of source. Use the local live section for Run AI handoff → Execute → Replay → Spoof → Prepare → Revoke → Execute.
 
-The local app includes a continuous 90-second browser recorder, requiring selection of only the Relay Trust tab in the browser sharing picker. The earlier published video remains captioned captures until a new continuous capture is completed and verified.
+The local app includes a continuous 90-second browser recorder. Select only the Relay Trust tab in the browser sharing picker; the app demonstrates the operations and saves the recording to the configured local directory. The completed live recording is linked above and on the public demo.

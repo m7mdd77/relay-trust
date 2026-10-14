@@ -1,18 +1,17 @@
-# 90-second walkthrough
+# Continuous 90-second live walkthrough
 
-Target duration: 90 seconds. Read at roughly 150–160 words/minute with short pauses. This is a script for an actual browser recording. Screenshots are supplied; no live screencast or Loom has been recorded.
+[Watch the live capture](https://relay-trust-agent-lab.choggyacc.chatgpt.site/relay-trust-live-walkthrough.mp4). This is one continuous browser MediaRecorder capture of the actual local independent-agent interaction, without microphone audio. It is not a screenshot montage. The two DeepSeek calls finish before recording; signed requests and trust decisions run live during the capture.
 
-| Time | Screen action | Narration |
-| --- | --- | --- |
-| 0–10 s | Show Scout and Patch Steward profiles. | “This is Relay Trust. Scout requests a repair ticket; Patch Steward decides whether to accept. These are synthetic actors with distinct real Ed25519 keys.” |
-| 10–22 s | Show owner grant, 3 inspections, self-reported 999 jobs. | “Scout claims 999 jobs. We ignore that number. The Evidence Lab signs three synthetic inspection receipts. The owner separately grants ticket creation for SITE-17, with a quota and expiry.” |
-| 22–36 s | Valid repair ticket → Check → Execute. | “The requester signs the handoff, including hashes of the exact credentials. Steward checks identities, issuers, audiences, scope, evidence, and revocation. At execution it checks again, then signs a receipt.” |
-| 36–44 s | Repeat execution. | “Repeating this task returns the same receipt. The unique request ID prevents duplicate effects.” |
-| 44–54 s | Out of scope → Check. | “Now a real Scout asks to delete the site. Its signature is authentic, but deletion is outside the delegation. Steward refuses and explains which boundary failed.” |
-| 54–66 s | Spoofed Scout → Check; Tampered grant → Check. | “Mirror copies Scout's identity but signs with the wrong key. Verification catches it. Inflating a signed grant's quota also breaks the owner's signature.” |
-| 66–82 s | Renew → Valid request → Check → Revoke → Execute. | “An initial approval is provisional. Here we revoke trust after approval. The live execution check refuses the task, and the ticket count does not increase.” |
-| 82–90 s | Show public signature verifier and architecture. | “Authority is evidence plus policy, not a reputation score. Public signatures are independently verifiable. This local format is not a claim of VC or DID compliance.” |
+| Time | Actual interaction |
+| --- | --- |
+| 0–12 s | Separate Scout/Steward processes are ready. Scout signs a fresh request using the actual AI proposal; Steward verifies all fifteen checks. |
+| 12–25 s | Steward executes one synthetic repair draft and signs its receipt. |
+| 25–38 s | Replay returns the same receipt without another effect. |
+| 38–51 s | A copied Scout identity signed with Mirror's key is refused: `request_signature`. |
+| 51–64 s | Scout signs another fresh request; Steward prepares it. |
+| 64–76 s | Owner revokes the grant. |
+| 76–90 s | Steward rechecks at execution and blocks the pending task: `revocation`. |
 
-Preparation: renew a grant before recording, keep the authority and handoff panels in view, close raw JSON details, and use a desktop viewport. Do not display `.local/`, browser network-token headers, or any unrelated account. The recording only needs public synthetic profiles and signed envelopes. If the quota is consumed, renew before the next allowed task; renewal intentionally invalidates old prepared tasks.
+The live demo also exposes the raw transcript, signed requests, issuer credentials, and checks. New authority/evidence use W3C VC 2.0 / eddsa-jcs-2022 proofs and Ed25519 did:key identifiers. The public hosted fixture flows remain interactive; the model-backed process runner is local, with the owner's API key kept out of hosted public access.
 
-For a second demonstration, narrow to one ticket, execute one new handoff, and show the next request fails quota. Expired request and wrong audience fixtures are also available.
+To record another run, start the local app with `RELAY_AGENT_ENV` pointing to a private environment file, click Run AI handoff, close the raw transcript disclosure, then click Record this tab. Select only Relay Trust in the browser sharing picker. The timed flow runs automatically and the server saves a WebM file in `RELAY_RECORDING_DIRECTORY` or ignored `.local/recordings`. Review the capture before publication. The earlier captioned-capture MP4 remains an archival artifact.

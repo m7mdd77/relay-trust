@@ -1,24 +1,13 @@
-# Relay Trust — hosted synthetic laboratory
+# Relay Trust hosted companion
 
-Hosted companion to the dependency-free Node.js local prototype in `../relay-trust/`. Built with the supplied Sites Vinext starter and Cloudflare D1. The original Ed25519 crypto and fifteen-check policy are reused unchanged.
+The public Vinext/Cloudflare Workers/D1 companion provides isolated interactive trust fixtures, W3C VC 2.0 / eddsa-jcs-2022 credentials, Ed25519 did:key identifiers, the verified independent-AI transcript, and the continuous 90-second live walkthrough.
 
-Every visitor receives a separate anonymous synthetic sandbox. Its five key pairs stay server-side in a D1 record. A 256-bit HttpOnly, Secure, SameSite=Strict cookie locates the record by its hash; a separate mutation token binds browser writes. No account, model key, wallet, real site, or personal data is needed. Visitors control only their own synthetic owner. This grants no authority over real resources or another visitor.
+Each visitor receives a synthetic sandbox. Five key pairs stay in private server-side D1 state; the public export omits private keys and mutation tokens. Cookie, same-origin, revision/deadline, quota, and session-capacity gates remain in place. Keys are not protected from hosting administrators, and this is not a real-world owner-authentication service.
 
-The API commits each action with a D1 revision guard. Any concurrent revocation or effect forces a reload and full reevaluation. A successful effect also carries a database-time expiry guard. The request, consumed quota, events, and receipt are committed as one row update; replay returns the existing signed receipt. The session survives Worker restarts and lasts 24 hours. Keys are plaintext within private server-side database storage; no key-management or administrator-compromise protection is claimed.
+Scout and Steward's actual DeepSeek runtime is in the repository root: separate local Node processes and separate signing keys, using the existing private AgentRouter configuration through the supported installed Claude Code client. Workers cannot launch that desktop client, so the hosted page exposes the verified evidence and recording without exposing the owner's paid inference endpoint.
 
-Task/credential counts and mutations per minute are bounded within a sandbox. Active sessions are atomically capped at 256. Start fresh rotates keys and session cookies. Expired rows are purged in batches during session creation. The public demo is not an abuse-resistant production authority service: an anonymous attacker could fill the session capacity or consume request resources. No real owner login, third-party issuer authentication, process isolation, or external credential-standard compliance is claimed.
+Use Node 24. Install lockfile dependencies with `npm run install:ci`, run `node --test test/*.test.js`, then `npm run build`. Follow the Sites workflow for D1 migration, source synchronization, packaging, and publication. Preserve the existing project ID in the deployment checkout; the public GitHub copy removes it.
 
-## Setup and checks
+The hosted suite passes 13 tests, including W3C's published B.3 proof/hash vector. The local suite passes 40 tests. See `STANDARDS.md` for the supported credential profile, live-agent setup, and limits.
 
-Node.js 24 recommended. Install the lockfile dependencies through the Sites plugin's installation helper or `npm run install:ci`. Declare `DB` in `.openai/hosting.json`. Apply the checked-in Drizzle migration to the local D1 preview, build, then `npm start -- --port 3252` to preview the built Worker on loopback. Follow the Sites skill for registration, source synchronization, migration application, and publication.
-
-```powershell
-node --test test/*.test.js
-npm run build
-```
-
-`test/api.test.js` covers cookie isolation, private-key-free public export, Origin/token gates, all adversarial fixtures, concurrent idempotency, revocation, narrowed quota, persistence, expiry, and key rotation. The dependency-free local build separately passes its broader 34-test cryptographic/HTTP suite.
-
-AI tools used: OpenAI Codex for implementation, tests, publication preparation, and verification. Source publishing into the Sites-managed repository is part of hosting; a separate public clean-clone repository for the DOO checklist remains pending.
-
-Public walkthrough uses the same operations as the local prototype: valid handoff, execution, replay, out-of-scope request, spoof/tamper, revocation after approval, narrowed quota. The UI links the architecture, 252-word thesis, and 90-second narration script. Only screenshots and a recording script are supplied; no live video has been recorded.
+OpenAI Codex assisted design, implementation, tests, documentation, and release. Agents, pinned issuers, inspection history, and repair effects remain explicitly synthetic; signatures and model calls are real.
