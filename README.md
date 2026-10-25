@@ -1,3 +1,7 @@
+Current runtime: **GPT 6.1 Sol through AgentRouter**. See [configuration and verification](docs/sol-migration.md). Dated DeepSeek recordings remain historical evidence.
+
+Current AI runtime: GPT 6.1 Sol through AgentRouter. See [migration notes](docs/sol-migration.md). Dated videos and DeepSeek evidence remain historical.
+
 <div align="center">
 <img src="hosted/public/favicon.svg" width="64" alt="Relay Trust icon">
 

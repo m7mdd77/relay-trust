@@ -1,0 +1,40 @@
+{
+  "verifiedAt": "2026-10-25T05:21:23.407Z",
+  "model": "gpt-6.1-sol",
+  "runs": [
+    {
+      "name": "relay",
+      "ok": false,
+      "message": "AgentRouter could not complete the Sol reading. No fallback or automatic retry was made."
+    },
+    {
+      "name": "relay",
+      "ok": true,
+      "readings": [
+        {
+          "type": "scout.ai_proposal",
+          "model": "gpt-6.1-sol",
+          "usage": {
+            "input_tokens": 4743,
+            "output_tokens": 154,
+            "cache_read_input_tokens": 0
+          }
+        },
+        {
+          "type": "steward.ai_review",
+          "model": "gpt-6.1-sol",
+          "usage": {
+            "input_tokens": 4581,
+            "output_tokens": 148,
+            "cache_read_input_tokens": 0
+          }
+        }
+      ],
+      "events": [
+        "processes.started",
+        "scout.ai_proposal",
+        "steward.ai_review"
+      ]
+    }
+  ]
+}

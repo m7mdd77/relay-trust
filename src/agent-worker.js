@@ -13,8 +13,8 @@ async function model(system,input){
  if(paidCalls>=1)throw Error('This agent already used its one-call demonstration allowance. Restart explicitly for another run.');
  const env={};for(const line of readFileSync(process.env.RELAY_AGENT_ENV||'.env','utf8').split(/\r?\n/)){const m=line.match(/^([A-Z_]+)=(.*)$/);if(m)env[m[1]]=m[2].trim().replace(/^"|"$/g,'');}
  if(!env.AGENTROUTER_API_KEY||!['https://agentrouter.org','https://agentrouter.org/v1'].includes(env.AGENTROUTER_BASE_URL))throw Error('Configure the authorized AgentRouter key/base URL');
- if(env.AGENTROUTER_TRANSPORT!=='claude-code')throw Error('This demo requires the supported installed Claude Code client');
- const config={key:env.AGENTROUTER_API_KEY,endpoint:'https://agentrouter.org/v1/messages',model:'deepseek-v4-flash',clientPath:env.CLAUDE_CODE_PATH||'claude.exe'};
+ if(env.AGENTROUTER_TRANSPORT!=='codex')throw Error('This demo requires the supported installed Codex client');
+ const config={key:env.AGENTROUTER_API_KEY,endpoint:'https://agentrouter.org/v1/responses',model:'gpt-6.1-sol',clientPath:env.CODEX_PATH||'codex.exe'};
  paidCalls++;const completion=await invokeSupportedClient({config,messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(input)}],directory,signal:AbortSignal.timeout(90000)});
  const text=completion.content.map(c=>c.text).join('');if(text.length>3000)throw Error('Invalid model output');
  return {text,provider:'AgentRouter',model:config.model,usage:completion.usage};
