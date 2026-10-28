@@ -8,3 +8,6 @@ hosted/.sites-runtime/
 hosted/dist/
 hosted/.vinext/
 hosted/.git/
+
+# Sanitized server configuration template.
+!.env.example

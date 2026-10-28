@@ -2,22 +2,19 @@ import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {createInterface} from 'node:readline';
 import {randomUUID} from 'node:crypto';
+import {parseEnv} from 'node:util';
 import {newIdentity,publicIdentity,signed,digest} from './crypto.js';
 import {evaluate} from './policy.js';
-import {invokeSupportedClient} from './cli-client.js';
+import {invokeCerebras,cerebrasConfig} from './cerebras-client.js';
 const role=process.argv[2];if(!['scout','steward'].includes(role))throw Error('Unsupported agent role');
 const directory=resolve('.local/agent-processes',role);mkdirSync(directory,{recursive:true});
 const identityFile=resolve(directory,'identity.json');let identity=existsSync(identityFile)?JSON.parse(readFileSync(identityFile,'utf8')):newIdentity(role,role);identity.id=identity.did;writeFileSync(identityFile,JSON.stringify(identity),{mode:0o600});
 let roots,proposal,analysis,paidCalls=0;const receipts=new Map();
 async function model(system,input){
  if(paidCalls>=1)throw Error('This agent already used its one-call demonstration allowance. Restart explicitly for another run.');
- const env={};for(const line of readFileSync(process.env.RELAY_AGENT_ENV||'.env','utf8').split(/\r?\n/)){const m=line.match(/^([A-Z_]+)=(.*)$/);if(m)env[m[1]]=m[2].trim().replace(/^"|"$/g,'');}
- if(!env.AGENTROUTER_API_KEY||!['https://agentrouter.org','https://agentrouter.org/v1'].includes(env.AGENTROUTER_BASE_URL))throw Error('Configure the authorized AgentRouter key/base URL');
- if(env.AGENTROUTER_TRANSPORT!=='codex')throw Error('This demo requires the supported installed Codex client');
- const config={key:env.AGENTROUTER_API_KEY,endpoint:'https://agentrouter.org/v1/responses',model:'gpt-6.1-sol',clientPath:env.CODEX_PATH||'codex.exe'};
- paidCalls++;const completion=await invokeSupportedClient({config,messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(input)}],directory,signal:AbortSignal.timeout(90000)});
- const text=completion.content.map(c=>c.text).join('');if(text.length>3000)throw Error('Invalid model output');
- return {text,provider:'AgentRouter',model:config.model,usage:completion.usage};
+ const env=parseEnv(readFileSync(process.env.RELAY_AGENT_ENV||'.env','utf8')),config=cerebrasConfig(env);if(!config.configured)throw Error('Configure the approved Cerebras key file.');
+ paidCalls++;const completion=await invokeCerebras({config,messages:[{role:'system',content:system},{role:'user',content:JSON.stringify(input)}],signal:AbortSignal.timeout(90000),maxTokens:768,jsonMode:role==='scout'});
+ const text=completion.content.map(c=>c.text).join('');if(text.length>3000)throw Error('Invalid model output');return{text,provider:'Cerebras',model:config.model,usage:completion.usage};
 }
 function context(body){if(!roots)throw Error('Agent roots not initialized');return {...body,identities:roots,revoked:new Set(body.revoked||[]),now:Date.now()};}
 async function handle(body){

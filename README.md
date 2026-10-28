@@ -1,6 +1,4 @@
-Current runtime: **GPT 6.1 Sol through AgentRouter**. See [configuration and verification](docs/sol-migration.md). Dated DeepSeek recordings remain historical evidence.
-
-Current AI runtime: GPT 6.1 Sol through AgentRouter. See [migration notes](docs/sol-migration.md). Dated videos and DeepSeek evidence remain historical.
+Current runtime: **Qwen 3.8 27B through Cerebras**. See [configuration and fresh verification](docs/cerebras-migration.md). Earlier provider recordings and evidence remain dated history.
 
 <div align="center">
 <img src="hosted/public/favicon.svg" width="64" alt="Relay Trust icon">
@@ -78,9 +76,9 @@ Local effects commit with a fresh policy check inside SQLite `BEGIN IMMEDIATE`. 
 
 ## AI usage and limits
 
-OpenAI Codex assisted with scenario design, implementation, tests, documentation, publication preparation, and browser verification. The original fixture lab needs no model. The independent local agents use the existing private AgentRouter configuration through the actual supported Claude Code client. Model proposals cannot bypass deterministic authorization.
+OpenAI Codex assisted with scenario design, implementation, tests, documentation, publication preparation, and browser verification. The original fixture lab needs no model. The independent local agents use the private Cerebras configuration through the bounded direct API adapter. Model proposals cannot bypass deterministic authorization.
 
-- The fixture lab simulates agents. The live local AI section runs Scout and Steward in separate Node processes, each retaining its own signing key and calling DeepSeek V4 Flash through AgentRouter. The hosted Worker exposes the verified public transcript, without the owner model key.
+- The fixture lab simulates agents. The live local AI section runs Scout and Steward in separate Node processes, each retaining its own signing key and calling Qwen 3.8 27B through Cerebras. The hosted Worker exposes the verified public transcript, without the owner model key.
 - Issuers are pinned synthetic roots; signatures establish origin/integrity, not real-world identity or the truth of a claim.
 - New grants and attestations carry W3C VC 2.0 / Data Integrity `eddsa-jcs-2022` proofs with Ed25519 `did:key` identifiers. The verifier passes the published W3C B.3 vector. Legacy sessions may retain the original format; renew or start fresh.
 - Public visitors control only their own synthetic sandbox. Keys stay server-side in private D1 state; sessions last 24 hours and active sessions are capped at 256.

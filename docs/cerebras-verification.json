@@ -1,0 +1,53 @@
+{
+  "verifiedAt": "2026-10-28T07:30:49.965Z",
+  "provider": "Cerebras",
+  "model": "qwen-3.8-27b",
+  "scope": "Real Scout and Steward model calls in separate existing application agent processes, synthetic signed trust context, proposal/preparation only; execution not requested.",
+  "tests": {
+    "passed": 46,
+    "failed": 0,
+    "scope": "Local regression and mocked provider boundary tests; independent from the genuine call below."
+  },
+  "local": {
+    "at": "2026-10-28T07:33:48.081Z",
+    "provider": "Cerebras",
+    "model": "qwen-3.8-27b",
+    "scope": "Real Scout and Steward model calls in separate existing application agent processes, synthetic signed trust context, proposal/preparation only; execution not requested.",
+    "ok": true,
+    "elapsedMs": 1229,
+    "prepared": true,
+    "executed": false,
+    "roles": [
+      {
+        "role": "scout",
+        "model": "qwen-3.8-27b",
+        "usage": {
+          "input_tokens": 837,
+          "output_tokens": 44,
+          "cache_read_input_tokens": 0
+        }
+      },
+      {
+        "role": "steward",
+        "model": "qwen-3.8-27b",
+        "usage": {
+          "input_tokens": 453,
+          "output_tokens": 37,
+          "cache_read_input_tokens": 0
+        }
+      }
+    ]
+  },
+  "publicVerification": {
+    "scope": "Public deterministic companion; paid model path remains local only. No public inference claimed."
+  },
+  "deployment": {
+    "name": "relay",
+    "project_id": "appgprj_6acd871babe08191811217f53f9667db",
+    "version_id": "appgprj_6acd871babe08191811217f53f9667db~appgver_c9481e260c688191a0be586c6776871e",
+    "deployment_id": "appgdep_6ae1a9776c1c819195299d8374324311",
+    "status": "succeeded",
+    "url": "https://relay-trust-agent-lab.choggyacc.chatgpt.site",
+    "commit_sha": "8da9d906015b73559fe9f03c6dc004d479dfa7d5"
+  }
+}
