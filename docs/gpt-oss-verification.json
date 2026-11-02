@@ -1,0 +1,54 @@
+{
+  "at": "2026-11-02T09:16:57.232Z",
+  "provider": "Cerebras",
+  "model": "gpt-oss-120b",
+  "credentialSource": "New operator-selected private key file; no credential contents or personal file paths published.",
+  "tests": {
+    "passed": 46,
+    "failed": 0,
+    "scope": "Local regression tests with injected provider responses; separate from genuine model evidence."
+  },
+  "local": {
+    "at": "2026-11-02T09:03:43.795Z",
+    "provider": "Cerebras",
+    "model": "gpt-oss-120b",
+    "scope": "Real Scout and Steward model calls in separate existing application agent processes, synthetic signed trust context, proposal/preparation only; execution not requested.",
+    "ok": true,
+    "elapsedMs": 1446,
+    "prepared": true,
+    "executed": false,
+    "roles": [
+      {
+        "role": "scout",
+        "model": "gpt-oss-120b",
+        "usage": {
+          "input_tokens": 685,
+          "output_tokens": 67,
+          "cache_read_input_tokens": 0
+        }
+      },
+      {
+        "role": "steward",
+        "model": "gpt-oss-120b",
+        "usage": {
+          "input_tokens": 503,
+          "output_tokens": 47,
+          "cache_read_input_tokens": 0
+        }
+      }
+    ]
+  },
+  "previousLocalAttempts": [],
+  "publicVerification": {
+    "scope": "Public deterministic companion. Paid model path remains local; no public model call claimed."
+  },
+  "deployment": {
+    "name": "relay",
+    "project_id": "appgprj_6acd871babe08191811217f53f9667db",
+    "version_id": "appgprj_6acd871babe08191811217f53f9667db~appgver_6848c2c97f5c8191a8ea23889d00335c",
+    "deployment_id": "appgdep_6ae853fa788c81918d2aa380cac56a20",
+    "status": "succeeded",
+    "url": "https://relay-trust-agent-lab.choggyacc.chatgpt.site",
+    "commit_sha": "b1d937d0052a41d51275f8803019f3504e2c158f"
+  }
+}
